@@ -17,6 +17,8 @@ import UserContextExampleWithMemoValue from './pages/UserContextExampleWithMemoV
 import DeepNesting from './pages/DeepNesting'
 import DeepNestingWithOneMemo from './pages/DeepNestingWithOneMemo'
 import DeepNestingWithAllMemo from './pages/DeepNestingWithAllMemo'
+import MultiUpdateWithUseState from './pages/MultiUpdateWithUseState'
+import MultiUpdateWithUseReducer from './pages/MultiUpdateWithUseReducer'
 
 function App() { 
   const routes = [
@@ -31,6 +33,8 @@ function App() {
     { path: "/example41", component: DeepNesting, name: DeepNesting.name },
     { path: "/example42", component: DeepNestingWithOneMemo, name: DeepNestingWithOneMemo.name },
     { path: "/example43", component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
+    { path: "/example51", component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
+    { path: "/example52", component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
   ]
 
   return (
