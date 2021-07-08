@@ -8,8 +8,9 @@ import {
 
 import SiblingComponentWithMemo from './pages/SiblingComponentWithMemo'
 import SiblingComponentWithoutMemo from './pages/SiblingComponentWithoutMemo'
-import QueryWithSuspense from './pages/QueryWithSuspense'
-import QueryWithoutSuspense from './pages/QueryWithoutSuspense'
+import ReactQuery from './pages/ReactQuery'
+import ReactQueryWithConditions from './pages/ReactQueryWithConditions'
+import ReactQueryWithSuspense from './pages/ReactQueryWithSuspense'
 import UserContextExample from './pages/UserContextExample'
 import UserContextExampleWithMemo from './pages/UserContextExampleWithMemo'
 import UserContextExampleWithMemoValue from './pages/UserContextExampleWithMemoValue'
@@ -21,8 +22,9 @@ function App() {
   const routes = [
     { path: "/example11", component: SiblingComponentWithoutMemo, name: SiblingComponentWithoutMemo.name },
     { path: "/example12", component: SiblingComponentWithMemo, name: SiblingComponentWithMemo.name },
-    { path: "/example21", component: QueryWithoutSuspense, name: QueryWithoutSuspense.name },
-    { path: "/example22", component: QueryWithSuspense, name: QueryWithSuspense.name },
+    { path: "/example21", component: ReactQuery, name: ReactQuery.name },
+    { path: "/example22", component: ReactQueryWithConditions, name: ReactQueryWithConditions.name },
+    { path: "/example23", component: ReactQueryWithSuspense, name: ReactQueryWithSuspense.name },
     { path: "/example31", component: UserContextExample, name: UserContextExample.name },
     { path: "/example32", component: UserContextExampleWithMemo, name: UserContextExampleWithMemo.name },
     { path: "/example33", component: UserContextExampleWithMemoValue, name: UserContextExampleWithMemoValue.name },
