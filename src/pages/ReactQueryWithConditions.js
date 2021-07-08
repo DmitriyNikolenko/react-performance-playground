@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { HeavyComponent } from '../components/HeavyComponent'
 import { QueryClient, QueryClientProvider, useQuery } from "react-query"
 
 export default function ReactQueryWithConditions() {
@@ -9,7 +8,7 @@ export default function ReactQueryWithConditions() {
     return (
         <QueryClientProvider client={queryClient}>
             <h1>ReactQueryWithConditions</h1>  
-            <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            <SyntaxHighlighter accentedLines={[]}>{code}</SyntaxHighlighter>
             <Loader />
         </QueryClientProvider>
     )

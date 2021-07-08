@@ -23,6 +23,8 @@ import FutureAutomaticBatching from './pages/FutureAutomaticBatching'
 import FutureStartTransition from './pages/FutureStartTransition'
 import InitUseState from './pages/InitUseState'
 import InitUseStateWithCallback from './pages/InitUseStateWithCallback'
+import ReallyHeavyCalculation from './pages/ReallyHeavyCalculation'
+import ReallyHeavyCalculationWithinWorker from './pages/ReallyHeavyCalculationWithinWorker'
 
 function App() { 
   const routes = [
@@ -39,11 +41,12 @@ function App() {
     { path: "/example43", component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
     { path: "/example51", component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
     { path: "/example52", component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
-    { path: "/example61", component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
-    { path: "/example62", component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
+    { path: "/example61", component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
     { path: "/example62", component: FutureStartTransition, name: FutureStartTransition.name },
     { path: "/example71", component: InitUseState, name: InitUseState.name },
     { path: "/example72", component: InitUseStateWithCallback, name: InitUseStateWithCallback.name },
+    { path: "/example81", component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
+    { path: "/example82", component: ReallyHeavyCalculationWithinWorker, name: ReallyHeavyCalculationWithinWorker.name },
   ]
 
   return (

@@ -5,7 +5,7 @@ export default function SiblingComponentWithMemo() {
   return (
     <>
       <h1>SiblingComponentWithMemo</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <SyntaxHighlighter accentedLines={[14]}>{code}</SyntaxHighlighter>
       <Counter />
     </>
   );

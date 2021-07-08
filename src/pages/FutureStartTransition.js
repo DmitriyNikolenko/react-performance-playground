@@ -4,7 +4,7 @@ export default function FutureStartTransition() {
  return (
     <>
       <h1>FutureStartTransition</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <SyntaxHighlighter accentedLines={[10,11,12]}>{code}</SyntaxHighlighter>
     </>
   );
 }

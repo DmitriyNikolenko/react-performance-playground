@@ -5,7 +5,7 @@ export default function UserContextExampleWithMemoValue() {
   return (
     <>
       <h1>UserContextExampleWithMemoValue</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <SyntaxHighlighter accentedLines={[6]}>{code}</SyntaxHighlighter>
       <FatContext />
     </>
   );

@@ -4,7 +4,7 @@ export default function FutureAutomaticBatching() {
  return (
     <>
       <h1>FutureAutomaticBatching</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
     </>
   );
 }

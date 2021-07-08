@@ -5,7 +5,7 @@ export default function MultiUpdateWithUseReducerPage() {
  return (
     <>
       <h1>MultiUpdateWithUseReducer</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <SyntaxHighlighter accentedLines={[14,17,19]}>{code}</SyntaxHighlighter>
       <MultiUpdateWithUseReducer />
     </>
   );
