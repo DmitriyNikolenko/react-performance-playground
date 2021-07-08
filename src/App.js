@@ -19,6 +19,8 @@ import DeepNestingWithOneMemo from './pages/DeepNestingWithOneMemo'
 import DeepNestingWithAllMemo from './pages/DeepNestingWithAllMemo'
 import MultiUpdateWithUseState from './pages/MultiUpdateWithUseState'
 import MultiUpdateWithUseReducer from './pages/MultiUpdateWithUseReducer'
+import FutureAutomaticBatching from './pages/FutureAutomaticBatching'
+import FutureStartTransition from './pages/FutureStartTransition'
 
 function App() { 
   const routes = [
@@ -35,6 +37,9 @@ function App() {
     { path: "/example43", component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
     { path: "/example51", component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
     { path: "/example52", component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
+    { path: "/example71", component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
+    { path: "/example72", component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
+    { path: "/example72", component: FutureStartTransition, name: FutureStartTransition.name },
   ]
 
   return (
