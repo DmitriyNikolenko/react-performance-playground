@@ -29,6 +29,8 @@ import SlowQuery from './pages/SlowQuery'
 import SlowQueryWithPreFetch from './pages/SlowQueryWithPreFetch'
 import SlowQueryWithPrediction from './pages/SlowQueryWithPrediction'
 import SlowQueryWithPredictionButtons from './pages/SlowQueryWithPredictionButtons'
+import Scroll from './pages/Scroll'
+import ScrollWithLazyLoad from './pages/ScrollWithLazyLoad'
 
 function App() { 
   const routes = [
@@ -55,6 +57,8 @@ function App() {
     { path: "/example92", component: SlowQueryWithPreFetch, name: SlowQueryWithPreFetch.name },
     { path: "/example93", component: SlowQueryWithPrediction, name: SlowQueryWithPrediction.name },
     { path: "/example94", component: SlowQueryWithPredictionButtons, name: SlowQueryWithPredictionButtons.name },
+    { path: "/example101", component: Scroll, name: Scroll.name },
+    { path: "/example102", component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
   ]
 
   return (

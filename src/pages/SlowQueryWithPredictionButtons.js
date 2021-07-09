@@ -1,15 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
 import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { QueryClient, QueryClientProvider, useQuery } from "react-query"
-import futurelink from 'futurelink';
+import { QueryClient, QueryClientProvider } from "react-query"
 import NostradamusButton from '../components/NostradamusButton'
 
 const queryClient = new QueryClient()
-
-const longQuery = async () => {
-    await new Promise(res => setTimeout(res, 2000))
-    return "I love Rock'N'Roll"
-}
 
 export default function SlowQueryWithPredictionButtonsPage() {
     return (
