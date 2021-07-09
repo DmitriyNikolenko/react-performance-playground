@@ -25,6 +25,10 @@ import InitUseState from './pages/InitUseState'
 import InitUseStateWithCallback from './pages/InitUseStateWithCallback'
 import ReallyHeavyCalculation from './pages/ReallyHeavyCalculation'
 import ReallyHeavyCalculationWithinWorker from './pages/ReallyHeavyCalculationWithinWorker'
+import SlowQuery from './pages/SlowQuery'
+import SlowQueryWithPreFetch from './pages/SlowQueryWithPreFetch'
+import SlowQueryWithPrediction from './pages/SlowQueryWithPrediction'
+import SlowQueryWithPredictionButtons from './pages/SlowQueryWithPredictionButtons'
 
 function App() { 
   const routes = [
@@ -47,6 +51,10 @@ function App() {
     { path: "/example72", component: InitUseStateWithCallback, name: InitUseStateWithCallback.name },
     { path: "/example81", component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
     { path: "/example82", component: ReallyHeavyCalculationWithinWorker, name: ReallyHeavyCalculationWithinWorker.name },
+    { path: "/example91", component: SlowQuery, name: SlowQuery.name },
+    { path: "/example92", component: SlowQueryWithPreFetch, name: SlowQueryWithPreFetch.name },
+    { path: "/example93", component: SlowQueryWithPrediction, name: SlowQueryWithPrediction.name },
+    { path: "/example94", component: SlowQueryWithPredictionButtons, name: SlowQueryWithPredictionButtons.name },
   ]
 
   return (
