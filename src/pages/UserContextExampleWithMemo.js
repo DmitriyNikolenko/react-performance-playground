@@ -5,8 +5,14 @@ export default function UserContextExampleWithMemo() {
   return (
     <>
       <h1>UserContextExampleWithMemo</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            <main>
+        <section>
       <FatContext />
+        </section>
+        <aside>
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
     </>
   );
 }

@@ -5,8 +5,18 @@ export default function MultiUpdateWithUseStatePage() {
  return (
     <>
       <h1>MultiUpdateWithUseState</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+                    <main>
+
+              <section>
+
       <MultiUpdateWithUseState />
+        </section>
+        <aside>
+            
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+        </aside>
+        </main>
+
     </>
   );
 }

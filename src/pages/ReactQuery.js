@@ -8,8 +8,18 @@ export default function ReactQuery() {
     return (
         <QueryClientProvider client={queryClient}>
             <h1>ReactQuery</h1>  
-            <SyntaxHighlighter>{code}</SyntaxHighlighter>
+                          <main>
+
+                    <section>
             <Loader />
+
+        </section>
+        <aside>
+            <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            
+        </aside>
+        </main>
+
         </QueryClientProvider>
     )
 }

@@ -6,9 +6,19 @@ import { HeavyComponent } from '../components/HeavyComponent'
 export default function ScrollPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculation</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <h1>Scroll</h1> 
+                    <main>
+ 
+              <section>
+
       <Scroll />
+        </section>
+        <aside>
+            
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+        </aside>
+        </main>
+
     </>
   );
 }

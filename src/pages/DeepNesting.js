@@ -5,8 +5,16 @@ export default function DeepNestingPage() {
  return (
     <>
       <h1>DeepNesting</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
-      <DeepNesting />
+              <main>
+        <section>
+          <DeepNesting />
+
+        </section>
+        <aside>
+            
+        <SyntaxHighlighter>{code}</SyntaxHighlighter>
+        </aside>
+</main>
     </>
   );
 }

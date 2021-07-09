@@ -13,8 +13,14 @@ export default function SlowQueryWithPreFetchPage() {
     return (
         <QueryClientProvider client={queryClient}>
             <h1>SlowQueryWithPreFetchPage</h1>  
-            <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
+                  <main>
+        <section>
             <SlowQueryWithPreFetch />
+        </section>
+        <aside>
+            <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
         </QueryClientProvider>
     )
 }

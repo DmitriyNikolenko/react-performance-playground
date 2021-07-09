@@ -8,8 +8,14 @@ export default function SlowQueryPage() {
     return (
         <QueryClientProvider client={queryClient}>
             <h1>SlowQueryPage</h1>  
-            <SyntaxHighlighter>{code}</SyntaxHighlighter>
+                  <main>
+        <section>
             <SlowQuery />
+        </section>
+        <aside>
+            <SyntaxHighlighter>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
         </QueryClientProvider>
     )
 }

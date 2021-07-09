@@ -5,8 +5,18 @@ export default function InitUseStatePage() {
  return (
     <>
       <h1>InitUseState</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+                    <main>
+
+              <section>
       <InitUseState ms={1000} />
+
+        </section>
+        <aside>
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            
+        </aside>
+        </main>
+
     </>
   );
 }

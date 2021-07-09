@@ -8,8 +8,17 @@ export default function ReactQueryWithConditions() {
     return (
         <QueryClientProvider client={queryClient}>
             <h1>ReactQueryWithConditions</h1>  
-            <SyntaxHighlighter accentedLines={[]}>{code}</SyntaxHighlighter>
+                          <main>
+
+                    <section>
             <Loader />
+        </section>
+        <aside>
+            <SyntaxHighlighter accentedLines={[]}>{code}</SyntaxHighlighter>
+            
+        </aside>
+        </main>
+
         </QueryClientProvider>
     )
 }

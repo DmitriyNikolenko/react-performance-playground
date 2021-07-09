@@ -14,8 +14,14 @@ export default function SlowQueryWithPredictionPage() {
     return (
         <QueryClientProvider client={queryClient}>
             <h1>SlowQueryWithPredictionPage</h1>  
-            <SyntaxHighlighter accentedLines={[2,7,8,9,10,11,12,13,18]}>{code}</SyntaxHighlighter>
+                  <main>
+        <section>
             <SlowQueryWithPrediction />
+        </section>
+        <aside>
+            <SyntaxHighlighter accentedLines={[2,7,8,9,10,11,12,13,18]}>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
         </QueryClientProvider>
     )
 }

@@ -7,9 +7,15 @@ const queryClient = new QueryClient()
 export default function SlowQueryWithPredictionButtonsPage() {
     return (
         <QueryClientProvider client={queryClient}>
-            <h1>SlowQueryWithPredictionButtons</h1>  
-            <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
+            <h1>SlowQueryWithPredictionButtons</h1>
+                  <main>
+        <section>
             <SlowQueryWithPredictionButtons />
+        </section>
+        <aside>
+            <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
+        </aside>
+       </main>  
         </QueryClientProvider>
     )
 }

@@ -4,9 +4,15 @@ import React, { useState, useContext, createContext, useRef, useEffect, useMemo 
 export default function UserContextExampleWithMemoValue() {
   return (
     <>
-      <h1>UserContextExampleWithMemoValue</h1>  
-      <SyntaxHighlighter accentedLines={[6]}>{code}</SyntaxHighlighter>
+      <h1>UserContextExampleWithMemoValue</h1> 
+            <main>
+        <section>
       <FatContext />
+        </section>
+        <aside>
+      <SyntaxHighlighter accentedLines={[6]}>{code}</SyntaxHighlighter>
+        </aside>
+       </main> 
     </>
   );
 }

@@ -6,9 +6,19 @@ import { longTask } from '../utils/longTask'
 export default function ReallyHeavyCalculationPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculation</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+      <h1>ReallyHeavyCalculation</h1> 
+                    <main>
+ 
+              <section>
       <ReallyHeavyCalculation />
+
+        </section>
+        <aside>
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            
+        </aside>
+        </main>
+
     </>
   );
 }

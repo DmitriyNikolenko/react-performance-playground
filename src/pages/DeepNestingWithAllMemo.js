@@ -5,8 +5,18 @@ export default function DeepNestingWithAllMemoPage() {
  return (
     <>
       <h1>DeepNestingWithAllMemo</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+                    <main>
+
+              <section>
+
       <DeepNestingWithAllMemo />
+        </section>
+        <aside>
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            
+        </aside>
+        </main>
+
     </>
   );
 }

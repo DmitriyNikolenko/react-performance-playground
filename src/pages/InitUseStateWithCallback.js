@@ -5,8 +5,18 @@ export default function InitUseStateWithCallbackPage() {
  return (
     <>
       <h1>InitUseState</h1>  
-      <SyntaxHighlighter accentedLines={[8]}>{code}</SyntaxHighlighter>
+                    <main>
+
+              <section>
       <InitUseStateWithCallback ms={1000} />
+
+        </section>
+        <aside>
+      <SyntaxHighlighter accentedLines={[8]}>{code}</SyntaxHighlighter>
+            
+        </aside>
+        </main>
+
     </>
   );
 }

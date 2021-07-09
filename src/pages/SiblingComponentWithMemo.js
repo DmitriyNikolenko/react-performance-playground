@@ -5,8 +5,14 @@ export default function SiblingComponentWithMemo() {
   return (
     <>
       <h1>SiblingComponentWithMemo</h1>  
-      <SyntaxHighlighter accentedLines={[14]}>{code}</SyntaxHighlighter>
+            <main>
+        <section>
       <Counter />
+        </section>
+        <aside>
+      <SyntaxHighlighter accentedLines={[14]}>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
     </>
   );
 }

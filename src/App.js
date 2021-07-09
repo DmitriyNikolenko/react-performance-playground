@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import Navigation from './components/Navigation'
 import SiblingComponentWithMemo from './pages/SiblingComponentWithMemo'
 import SiblingComponentWithoutMemo from './pages/SiblingComponentWithoutMemo'
 import ReactQuery from './pages/ReactQuery'
@@ -32,50 +32,52 @@ import SlowQueryWithPredictionButtons from './pages/SlowQueryWithPredictionButto
 import Scroll from './pages/Scroll'
 import ScrollWithLazyLoad from './pages/ScrollWithLazyLoad'
 
-function App() { 
   const routes = [
-    { path: "/example11", component: SiblingComponentWithoutMemo, name: SiblingComponentWithoutMemo.name },
-    { path: "/example12", component: SiblingComponentWithMemo, name: SiblingComponentWithMemo.name },
-    { path: "/example21", component: ReactQuery, name: ReactQuery.name },
-    { path: "/example22", component: ReactQueryWithConditions, name: ReactQueryWithConditions.name },
-    { path: "/example23", component: ReactQueryWithSuspense, name: ReactQueryWithSuspense.name },
-    { path: "/example31", component: UserContextExample, name: UserContextExample.name },
-    { path: "/example32", component: UserContextExampleWithMemo, name: UserContextExampleWithMemo.name },
-    { path: "/example33", component: UserContextExampleWithMemoValue, name: UserContextExampleWithMemoValue.name },
-    { path: "/example41", component: DeepNesting, name: DeepNesting.name },
-    { path: "/example42", component: DeepNestingWithOneMemo, name: DeepNestingWithOneMemo.name },
-    { path: "/example43", component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
-    { path: "/example51", component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
-    { path: "/example52", component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
-    { path: "/example61", component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
-    { path: "/example62", component: FutureStartTransition, name: FutureStartTransition.name },
-    { path: "/example71", component: InitUseState, name: InitUseState.name },
-    { path: "/example72", component: InitUseStateWithCallback, name: InitUseStateWithCallback.name },
-    { path: "/example81", component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
-    { path: "/example82", component: ReallyHeavyCalculationWithinWorker, name: ReallyHeavyCalculationWithinWorker.name },
-    { path: "/example91", component: SlowQuery, name: SlowQuery.name },
-    { path: "/example92", component: SlowQueryWithPreFetch, name: SlowQueryWithPreFetch.name },
-    { path: "/example93", component: SlowQueryWithPrediction, name: SlowQueryWithPrediction.name },
-    { path: "/example94", component: SlowQueryWithPredictionButtons, name: SlowQueryWithPredictionButtons.name },
-    { path: "/example101", component: Scroll, name: Scroll.name },
-    { path: "/example102", component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
+    { component: SiblingComponentWithoutMemo, name: SiblingComponentWithoutMemo.name },
+    { component: SiblingComponentWithMemo, name: SiblingComponentWithMemo.name },
+    { component: ReactQuery, name: ReactQuery.name },
+    { component: ReactQueryWithConditions, name: ReactQueryWithConditions.name },
+    { component: ReactQueryWithSuspense, name: ReactQueryWithSuspense.name },
+    { component: UserContextExample, name: UserContextExample.name },
+    { component: UserContextExampleWithMemo, name: UserContextExampleWithMemo.name },
+    { component: UserContextExampleWithMemoValue, name: UserContextExampleWithMemoValue.name },
+    { component: DeepNesting, name: DeepNesting.name },
+    { component: DeepNestingWithOneMemo, name: DeepNestingWithOneMemo.name },
+    { component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
+    { component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
+    { component: MultiUpdateWithUseReducer, name: MultiUpdateWithUseReducer.name },
+    { component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
+    { component: FutureStartTransition, name: FutureStartTransition.name },
+    { component: InitUseState, name: InitUseState.name },
+    { component: InitUseStateWithCallback, name: InitUseStateWithCallback.name },
+    { component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
+    { component: ReallyHeavyCalculationWithinWorker, name: ReallyHeavyCalculationWithinWorker.name },
+    { component: SlowQuery, name: SlowQuery.name },
+    { component: SlowQueryWithPreFetch, name: SlowQueryWithPreFetch.name },
+    { component: SlowQueryWithPrediction, name: SlowQueryWithPrediction.name },
+    { component: SlowQueryWithPredictionButtons, name: SlowQueryWithPredictionButtons.name },
+    { component: Scroll, name: Scroll.name },
+    { component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
   ]
 
+function App() { 
   return (
     <Router>
-        <nav>
-          <ul>
-            {routes.map((route) => (
-              <li key={route.path}>
-                <Link to={route.path}>{route.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
+        <Navigation />
         <Switch>
-           {routes.map((route) => (
-              <Route key={route.path} path={route.path} component={route.component} />
+            <Route path="/" exact>
+              <nav>
+                <ul>
+                  {routes.map((route, index) => (
+                    <li key={`/example-${index + 1}`}>
+                      <Link to={`/example-${index + 1}`}>{route.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </Route>
+           {routes.map((route, index) => (
+              <Route key={route.path} path={`/example-${index + 1}`} component={route.component} />
             ))}
         </Switch>
     </Router>

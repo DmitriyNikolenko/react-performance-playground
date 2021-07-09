@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+/*  */
+
+body {
+  padding: 32px;
+}
+
+main {
+  clear: both;
+}
+
+section {
+  width: 40vw;
+  float: left;
+
+}
+
+aside {
+  width: 55vw;
+  float: right;
+}

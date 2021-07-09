@@ -7,12 +7,19 @@ import LazyLoad from 'react-lazyload';
 export default function ScrollWithLazyLoadPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculation</h1>  
-      <SyntaxHighlighter accentedLines={[2,13,15]}>{code}</SyntaxHighlighter>
-      <ScrollWithLazyLoad />
+      <h1>ScrollWithLazyLoad</h1>  
+      <main>
+        <section>
+            <ScrollWithLazyLoad />
+        </section>
+        <aside>
+            <SyntaxHighlighter accentedLines={[2,13,15]}>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
     </>
   );
 }
+
 
 const ScrollWithLazyLoad = () => {
     const [isShowed, setIsShowed] = useState(false)

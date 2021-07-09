@@ -5,8 +5,14 @@ export default function SiblingComponentWithoutMemo() {
  return (
     <>
       <h1>SiblingComponentWithoutMemo</h1>  
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+            <main>
+        <section>
       <Counter />
+        </section>
+        <aside>
+      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+        </aside>
+       </main>
     </>
   );
 }

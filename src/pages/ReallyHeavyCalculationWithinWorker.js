@@ -7,9 +7,19 @@ import { longTask } from '../utils/longTask'
 export default function ReallyHeavyCalculationWithinWorkerPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculation</h1>  
-      <SyntaxHighlighter accentedLines={[2, 7]}>{code}</SyntaxHighlighter>
+      <h1>ReallyHeavyCalculationWithinWorker</h1>  
+                    <main>
+
+              <section>
+
       <ReallyHeavyCalculationWithinWorker />
+        </section>
+        <aside>
+            
+      <SyntaxHighlighter accentedLines={[2, 7]}>{code}</SyntaxHighlighter>
+        </aside>
+        </main>
+
     </>
   );
 }
