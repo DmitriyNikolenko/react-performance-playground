@@ -1,22 +1,20 @@
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { useReducer, useRef, useEffect, useCallback } from 'react'
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { useReducer, useRef, useEffect, useCallback } from "react";
 
 export default function MultiUpdateWithUseReducerPage() {
- return (
+  return (
     <>
-      <h1>MultiUpdateWithUseReducer</h1>  
-                    <main>
-
-              <section>
-      <MultiUpdateWithUseReducer />
-
+      <h1>MultiUpdateWithUseReducer</h1>
+      <main>
+        <section>
+          <MultiUpdateWithUseReducer />
         </section>
         <aside>
-            
-      <SyntaxHighlighter accentedLines={[14,17,19]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[14, 17, 19]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
-        </main>
-
+      </main>
     </>
   );
 }
@@ -24,41 +22,44 @@ export default function MultiUpdateWithUseReducerPage() {
 const reducer = (state, action) => {
   switch (action.type) {
     case "load":
-      return { ...state, isLoading: true, isLoaded: true }
+      return { ...state, isLoading: true, isLoaded: true };
     case "save":
-      return { ...state, isLoading: false, user: action.user }
-    default: return state
+      return { ...state, isLoading: false, user: action.user };
+    default:
+      return state;
   }
-}
-const initialState = { isLoading: false, isLoaded: false, user: {} }
+};
+const initialState = { isLoading: false, isLoaded: false, user: {} };
 
 function MultiUpdateWithUseReducer() {
-    const updatedTimes = useRef(0)
-    useEffect(() => updatedTimes.current++)
+  const updatedTimes = useRef(0);
+  useEffect(() => updatedTimes.current++);
 
-    const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-    const loadUser = useCallback(async () => {
-      dispatch({ type: "load" })
-      const user = await new Promise(res => setTimeout(res({ name: "Vasya", age: 10 }), 500))
-      dispatch({ type: "save", user })
-    }, [])
+  const loadUser = useCallback(async () => {
+    dispatch({ type: "load" });
+    const user = await new Promise((res) =>
+      setTimeout(res({ name: "Vasya", age: 10 }), 500)
+    );
+    dispatch({ type: "save", user });
+  }, []);
 
-    return (
-      <>
-        <button onClick={() => loadUser()}>Updated {updatedTimes.current} times</button> 
+  return (
+    <>
+      <button onClick={() => loadUser()}>
+        Updated {updatedTimes.current} times
+      </button>
 
-        <pre>
-            {`
+      <pre>
+        {`
             isLoading=${state.isLoading}
             isLoaded=${state.isLoaded}
-            user=${JSON.stringify(state.user)}`
-            }
-        </pre>
-      </>
-  )
+            user=${JSON.stringify(state.user)}`}
+      </pre>
+    </>
+  );
 }
-
 
 const code = `
 const reducer = (state, action) => {
@@ -87,4 +88,4 @@ function MultiUpdateWithUseReducer() {
       </>
   )
 }
-` 
+`;

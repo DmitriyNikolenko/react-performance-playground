@@ -1,38 +1,34 @@
-import { useState } from 'react';
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { Colorizer } from '../components/Colorizer'
+import { useState } from "react";
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { Colorizer } from "../components/Colorizer";
 import { useWorker } from "@koale/useworker";
-import { longTask } from '../utils/longTask'
+import { longTask } from "../utils/longTask";
 
 export default function ReallyHeavyCalculationWithinWorkerPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculationWithinWorker</h1>  
-                    <main>
-
-              <section>
-
-      <ReallyHeavyCalculationWithinWorker />
+      <h1>ReallyHeavyCalculationWithinWorker</h1>
+      <main>
+        <section>
+          <ReallyHeavyCalculationWithinWorker />
         </section>
         <aside>
-            
-      <SyntaxHighlighter accentedLines={[2, 7]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[2, 7]}>{code}</SyntaxHighlighter>
         </aside>
-        </main>
-
+      </main>
     </>
   );
 }
 
 const ReallyHeavyCalculationWithinWorker = () => {
-  const [result, setResult] = useState()
+  const [result, setResult] = useState();
 
   const [runWorker, { status }] = useWorker(longTask);
-    
+
   const handleRun = async () => {
-    const result = await runWorker()
-    setResult(result)
-  }
+    const result = await runWorker();
+    setResult(result);
+  };
 
   return (
     <>
@@ -41,9 +37,9 @@ const ReallyHeavyCalculationWithinWorker = () => {
 
       <Colorizer />
     </>
-  )
-}
- 
+  );
+};
+
 const code = `
 import { useWorker } from "@koale/useworker";
 
@@ -66,4 +62,4 @@ const ReallyHeavyCalculation = () => {
     </>
   )
 }
-` 
+`;

@@ -1,10 +1,10 @@
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 
 export default function FutureStartTransition() {
- return (
+  return (
     <>
-      <h1>FutureStartTransition</h1>  
-      <SyntaxHighlighter accentedLines={[10,11,12]}>{code}</SyntaxHighlighter>
+      <h1>FutureStartTransition</h1>
+      <SyntaxHighlighter accentedLines={[10, 11, 12]}>{code}</SyntaxHighlighter>
     </>
   );
 }
@@ -27,4 +27,4 @@ function Slider({defaultValue, onChange}) {
     <Slider value={value} onChange={handleChange} />
   );
 }
-` 
+`;

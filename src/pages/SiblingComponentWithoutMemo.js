@@ -1,41 +1,39 @@
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { useState, useRef, useEffect } from 'react'
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { useState, useRef, useEffect } from "react";
 
 export default function SiblingComponentWithoutMemo() {
- return (
+  return (
     <>
-      <h1>SiblingComponentWithoutMemo</h1>  
-            <main>
+      <h1>SiblingComponentWithoutMemo</h1>
+      <main>
         <section>
-      <Counter />
+          <Counter />
         </section>
         <aside>
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter>{code}</SyntaxHighlighter>
         </aside>
-       </main>
+      </main>
     </>
   );
 }
 
 function Counter() {
-    const [x, setX] = useState(0)
+  const [x, setX] = useState(0);
 
-    return (
-      <>
-        <button onClick={() => setX(x => x + 1)}>Clicked {x} times</button> 
+  return (
+    <>
+      <button onClick={() => setX((x) => x + 1)}>Clicked {x} times</button>
 
-        <UpdateCounter />
-      </>
-  )
+      <UpdateCounter />
+    </>
+  );
 }
 
 function UpdateCounter() {
-  const updatedTimes = useRef(0)
-  useEffect(() => updatedTimes.current++)
+  const updatedTimes = useRef(0);
+  useEffect(() => updatedTimes.current++);
 
-  return (
-    <p>updated times {updatedTimes.current}</p>
-  )
+  return <p>updated times {updatedTimes.current}</p>;
 }
 
 const code = `
@@ -52,4 +50,4 @@ export default function Counter() {
 }
 
 const UpdateCounter = () => { /* Do something */ }
-` 
+`;

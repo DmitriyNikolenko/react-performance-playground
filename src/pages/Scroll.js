@@ -1,51 +1,51 @@
-import { useState } from 'react';
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { Colorizer } from '../components/Colorizer'
-import { HeavyComponent } from '../components/HeavyComponent'
+import { useState } from "react";
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { Colorizer } from "../components/Colorizer";
+import { HeavyComponent } from "../components/HeavyComponent";
 
 export default function ScrollPage() {
   return (
     <>
-      <h1>Scroll</h1> 
-                    <main>
- 
-              <section>
-
-      <Scroll />
+      <h1>Scroll</h1>
+      <main>
+        <section>
+          <Scroll />
         </section>
         <aside>
-            
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter>{code}</SyntaxHighlighter>
         </aside>
-        </main>
-
+      </main>
     </>
   );
 }
 
 const Scroll = () => {
-    const [isShowed, setIsShowed] = useState(false)
+  const [isShowed, setIsShowed] = useState(false);
 
-    return (
-        <>
-            <button onClick={() => setIsShowed(isShowed => !isShowed)}>
-                Show / hide
-            </button>
-            {isShowed 
-                ? Array(10).fill(null).map((_, index) => <HeavySection key={index} index={index} />)
-                : <p>спрятано</p>}
-        </>
-    )
-}
+  return (
+    <>
+      <button onClick={() => setIsShowed((isShowed) => !isShowed)}>
+        Show / hide
+      </button>
+      {isShowed ? (
+        Array(10)
+          .fill(null)
+          .map((_, index) => <HeavySection key={index} index={index} />)
+      ) : (
+        <p>спрятано</p>
+      )}
+    </>
+  );
+};
 
 const HeavySection = ({ index }) => (
-    <div style={{ height: 300}}>
-        <h2 style={{ textAlign: "center" }}>{index}</h2>
-        <HeavyComponent delay={150} />
-        <Colorizer />
-    </div>
-)
- 
+  <div style={{ height: 300 }}>
+    <h2 style={{ textAlign: "center" }}>{index}</h2>
+    <HeavyComponent delay={150} />
+    <Colorizer />
+  </div>
+);
+
 const code = `
 const Scroll = () => {
     const [isShowed, setIsShowed] = useState(false)
@@ -62,4 +62,4 @@ const Scroll = () => {
         </>
     )
 }
-` 
+`;

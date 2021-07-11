@@ -1,35 +1,38 @@
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { QueryClient, QueryClientProvider } from "react-query"
-import NostradamusButton from '../components/NostradamusButton'
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { QueryClient, QueryClientProvider } from "react-query";
+import NostradamusButton from "../components/NostradamusButton";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 export default function SlowQueryWithPredictionButtonsPage() {
-    return (
-        <QueryClientProvider client={queryClient}>
-            <h1>SlowQueryWithPredictionButtons</h1>
-                  <main>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <h1>SlowQueryWithPredictionButtons</h1>
+      <main>
         <section>
-            <SlowQueryWithPredictionButtons />
+          <SlowQueryWithPredictionButtons />
         </section>
         <aside>
-            <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
         </aside>
-       </main>  
-        </QueryClientProvider>
-    )
+      </main>
+    </QueryClientProvider>
+  );
 }
 
 const SlowQueryWithPredictionButtons = () => {
-    return (
-        <>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                {Array(5).fill(null).map((_, id) => <NostradamusButton key={id} />)}
-            </div>
-        </>
-    )
-}
-
+  return (
+    <>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {Array(5)
+          .fill(null)
+          .map((_, id) => (
+            <NostradamusButton key={id} />
+          ))}
+      </div>
+    </>
+  );
+};
 
 const code = `
 <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -39,4 +42,4 @@ const code = `
     <NostradamusButton />
     <NostradamusButton />
 </div>
-`
+`;

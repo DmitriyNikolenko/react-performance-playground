@@ -1,55 +1,60 @@
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { useState, useRef, useEffect, memo, useCallback } from 'react'
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { useState, useRef, useEffect, memo, useCallback } from "react";
 
 export default function DeepNestingWithOneMemoPage() {
- return (
+  return (
     <>
-      <h1>DeepNestingWithOneMemo</h1>  
-            <main>
+      <h1>DeepNestingWithOneMemo</h1>
+      <main>
         <section>
-      <DeepNestingWithOneMemo />
+          <DeepNestingWithOneMemo />
         </section>
         <aside>
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter>{code}</SyntaxHighlighter>
         </aside>
-       </main>
+      </main>
     </>
   );
 }
 
 function DeepNestingWithOneMemo() {
-    const [x, setX] = useState(0)
+  const [x, setX] = useState(0);
 
-    return (
-      <>
-        <button onClick={() => setX(x => x + 1)}>Clicked {x} times</button> 
+  return (
+    <>
+      <button onClick={() => setX((x) => x + 1)}>Clicked {x} times</button>
 
-        <MemoizedUpdateCounter name="first">
-            <UpdateCounter name="second">
-                <UpdateCounter name="third" passedProp={x}>
-                    <UpdateCounter name="forth"/>
-                </UpdateCounter>
-            </UpdateCounter>
-        </MemoizedUpdateCounter>
-      </>
-  )
+      <MemoizedUpdateCounter name="first">
+        <UpdateCounter name="second">
+          <UpdateCounter name="third" passedProp={x}>
+            <UpdateCounter name="forth" />
+          </UpdateCounter>
+        </UpdateCounter>
+      </MemoizedUpdateCounter>
+    </>
+  );
 }
 
 function UpdateCounter({ children, name, passedProp }) {
-  const updatedTimes = useRef(0)
-  useEffect(() => updatedTimes.current++)
+  const updatedTimes = useRef(0);
+  useEffect(() => updatedTimes.current++);
 
   return (
     <blockquote>
-        <p><b>{name}</b> updated times {updatedTimes.current}</p>
-        <p><b>Passed prop</b>{passedProp}</p>
-        <br/>
-        {children}
+      <p>
+        <b>{name}</b> updated times {updatedTimes.current}
+      </p>
+      <p>
+        <b>Passed prop</b>
+        {passedProp}
+      </p>
+      <br />
+      {children}
     </blockquote>
-  )
+  );
 }
 
-const MemoizedUpdateCounter = memo(UpdateCounter)
+const MemoizedUpdateCounter = memo(UpdateCounter);
 
 const code = `
 const MemoizedUpdateCounter = memo(UpdateCounter)
@@ -71,4 +76,4 @@ function DeepNesting() {
       </>
   )
 }
-` 
+`;

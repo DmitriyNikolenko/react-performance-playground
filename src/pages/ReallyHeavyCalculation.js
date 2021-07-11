@@ -1,35 +1,31 @@
-import { useState } from 'react';
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
-import { Colorizer } from '../components/Colorizer'
-import { longTask } from '../utils/longTask'
+import { useState } from "react";
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
+import { Colorizer } from "../components/Colorizer";
+import { longTask } from "../utils/longTask";
 
 export default function ReallyHeavyCalculationPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculation</h1> 
-                    <main>
- 
-              <section>
-      <ReallyHeavyCalculation />
-
+      <h1>ReallyHeavyCalculation</h1>
+      <main>
+        <section>
+          <ReallyHeavyCalculation />
         </section>
         <aside>
-      <SyntaxHighlighter>{code}</SyntaxHighlighter>
-            
+          <SyntaxHighlighter>{code}</SyntaxHighlighter>
         </aside>
-        </main>
-
+      </main>
     </>
   );
 }
 
 const ReallyHeavyCalculation = () => {
-  const [result, setResult] = useState()
+  const [result, setResult] = useState();
 
   const handleRun = async () => {
-    const result = await longTask()
-    setResult(result)
-  }
+    const result = await longTask();
+    setResult(result);
+  };
 
   return (
     <>
@@ -38,9 +34,9 @@ const ReallyHeavyCalculation = () => {
 
       <Colorizer />
     </>
-  )
-}
- 
+  );
+};
+
 const code = `
 const ReallyHeavyCalculation = () => {
   const [result, setResult] = useState()
@@ -59,4 +55,4 @@ const ReallyHeavyCalculation = () => {
     </>
   )
 }
-` 
+`;

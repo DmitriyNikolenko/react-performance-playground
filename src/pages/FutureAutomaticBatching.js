@@ -1,9 +1,9 @@
-import { SyntaxHighlighter } from '../components/SyntaxHighlighter'
+import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 
 export default function FutureAutomaticBatching() {
- return (
+  return (
     <>
-      <h1>FutureAutomaticBatching</h1>  
+      <h1>FutureAutomaticBatching</h1>
       <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
     </>
   );
@@ -27,4 +27,4 @@ function App() {
     </div>
   );
 }
-` 
+`;
