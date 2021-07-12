@@ -38,13 +38,15 @@
 }
 
 /*  */
-
-body {
-  padding: 32px;
+* {
+  font-size: 24px;
 }
+
+body {}
 
 main {
   clear: both;
+  padding: 32px;
 }
 
 section {
@@ -55,4 +57,33 @@ section {
 aside {
   width: 55vw;
   float: right;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  background-color: aquamarine;
+  padding: 8px 32px;
+}
+
+nav button {
+  padding: 4px 24px;
+  font-size: 16px;
+  font-weight: normal;
+  min-width: 120px;
+}
+
+nav > * {
+  margin-right: 8px;
+} 
+
+h1 {
+  background-color:darkcyan;
+  color: white;
+  padding: 8px 32px;
+  margin: 0;
 }

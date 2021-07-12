@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { Colorizer } from "../components/Colorizer";
+import { longTask } from '../utils/longTask'
 
 export default function SyncCalculationPage() {
   return (
@@ -18,51 +19,46 @@ export default function SyncCalculationPage() {
   );
 }
 
-function factorialOf(n) {
-  console.log("factorialOf", n);
-  return n <= 0 ? 1 : n * factorialOf(n - 1);
-}
-
 const SyncCalculation = () => {
   const [isShowed, setIsShowed] = useState(false);
 
-  const [number, setNumber] = useState(3000);
+  const [daysNumber, setDaysNumber] = useState(10);
 
   return (
     <>
       <div>
-        <p>Current number is {number}</p>
-        <button onClick={() => setNumber(3000)}>set 3000</button>
-        <button onClick={() => setNumber(4000)}>set 4000</button>
-        <button onClick={() => setNumber(5000)}>set 5000</button>
-        <button onClick={() => setNumber(6000)}>set 6000</button>
+        <p>Current number of days is {daysNumber}</p>
+        <button onClick={() => setDaysNumber(10)}>stat for 10 days</button>
+        <button onClick={() => setDaysNumber(15)}>stat for 15 days</button>
+        <button onClick={() => setDaysNumber(20)}>stat for 20 days</button>
+        <button onClick={() => setDaysNumber(25)}>stat for 25 days</button>
       </div>
       <br />
       <button onClick={() => setIsShowed((isShowed) => !isShowed)}>
         Show / hide
       </button>
-      {isShowed ? <Calc number={number} /> : <p>спрятано</p>}
+      {isShowed ? <Stat daysNumber={daysNumber} /> : <p>спрятано</p>}
     </>
   );
 };
 
-const Calc = ({ number }) => {
+const Stat = ({ daysNumber }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const saveCalcToAPI = () => {
+  const saveStatToAPI = () => {
     setIsLoading(true);
     setTimeout(() => void setIsLoading(false), 1000);
-  };
+  }; 
 
-  const result = factorialOf(number); // expensive calculation
+  const result = longTask(daysNumber * 100000); // expensive calculation
 
   return (
     <>
       <h4>Calculations</h4>
       <p>
-        Factorial of {number} equals to {result}
+        Stat for {daysNumber} days equals to {result}
       </p>
-      <button onClick={() => saveCalcToAPI()}>
+      <button onClick={saveStatToAPI}>
         Save to API {isLoading ? "Loading..." : null}
       </button>
       <Colorizer />
@@ -72,36 +68,36 @@ const Calc = ({ number }) => {
 
 const code = `
 const SyncCalculation = () => {
-  const [number, setNumber] = useState(3000)
+  const [daysNumber, setDaysNumber] = useState(10);
 
   return (
     <>
       <div>
-        <p>Current number is {number}</p>
-        <button onClick={() => setNumber(3000)}>set 3000</button>
-        <button onClick={() => setNumber(4000)}>set 4000</button>
-        <button onClick={() => setNumber(5000)}>set 5000</button>
-        <button onClick={() => setNumber(6000)}>set 6000</button>
+        <p>Current number of days is {daysNumber}</p>
+        <button onClick={() => setDaysNumber(10)}>stat for 10 days</button>
+        <button onClick={() => setDaysNumber(15)}>stat for 15 days</button>
+        <button onClick={() => setDaysNumber(20)}>stat for 20 days</button>
+        <button onClick={() => setDaysNumber(25)}>stat for 25 days</button>
       </div>
-      <Calc number={number} />
+      <Stat daysNumber={daysNumber} />
     </>
   )
 }
 
-const Calc = ({ number }) => {
+const Stat = ({ number }) => {
   const [isLoading, setIsLoading] = useState(false)
-  const saveCalcToAPI = () => {
+  const saveStatToAPI = () => {
     setIsLoading(true)
     setTimeout(() => void setIsLoading(false), 1000)
   }
 
-  const result = factorialOf(number) // expensive calculation
+  const result = calcStatFor(daysNumber) // expensive calculation
 
   return (
     <>
       <h4>Calculations</h4>
-      <p>Factorial of {number} equals to {result}</p>
-      <button onClick={saveCalcToAPI}>Save to API</button>
+      <p>Stat for {daysNumber} days equals to {result}</p>
+      <button onClick={saveStatToAPI}>Save to API</button>
     </>
   )
 }
