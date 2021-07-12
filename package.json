@@ -5,6 +5,7 @@
   "dependencies": {
     "@koale/useworker": "^4.0.2",
     "@use-it/interval": "^1.0.0",
+    "fast-memoize": "^2.5.2",
     "futurelink": "^1.0.0",
     "premonish": "^1.0.4",
     "react": "^17.0.2",

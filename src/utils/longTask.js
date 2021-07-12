@@ -1,5 +1,5 @@
-export const longTask = () =>
-  [...Array(5000000)]
+export const longTask = (x = 5000000) =>
+  [...Array(x)]
     .map((e) => ~~(Math.random() * 1000000))
     .sort()
     .reduce((sum, num) => sum + num, 0);

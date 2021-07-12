@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import SiblingComponentWithMemo from "./pages/SiblingComponentWithMemo";
 import SiblingComponentWithoutMemo from "./pages/SiblingComponentWithoutMemo";
+import SyncCalculation from "./pages/SyncCalculation";
+import SyncCalculationWithUseMemo from "./pages/SyncCalculationWithUseMemo";
+import SyncCalculationWithFastMemo from "./pages/SyncCalculationWithFastMemo";
 import ReactQuery from "./pages/ReactQuery";
 import ReactQueryWithConditions from "./pages/ReactQueryWithConditions";
 import ReactQueryWithSuspense from "./pages/ReactQueryWithSuspense";
@@ -31,14 +34,23 @@ import ContextAsGlobalState from "./pages/ContextAsGlobalState";
 import ContextAsGlobalStateWithSelector from "./pages/ContextAsGlobalStateWithSelector";
 
 const routes = [
+  // Основы мемоизации.
+  { component: SyncCalculation, name: SyncCalculation.name },
+  {
+    component: SyncCalculationWithUseMemo,
+    name: SyncCalculationWithUseMemo.name,
+  },
+  {
+    component: SyncCalculationWithFastMemo,
+    name: SyncCalculationWithFastMemo.name,
+  },
+
   {
     component: SiblingComponentWithoutMemo,
     name: SiblingComponentWithoutMemo.name,
   },
   { component: SiblingComponentWithMemo, name: SiblingComponentWithMemo.name },
-  { component: ReactQuery, name: ReactQuery.name },
-  { component: ReactQueryWithConditions, name: ReactQueryWithConditions.name },
-  { component: ReactQueryWithSuspense, name: ReactQueryWithSuspense.name },
+
   { component: UserContextExample, name: UserContextExample.name },
   {
     component: UserContextExampleWithMemo,
@@ -48,24 +60,48 @@ const routes = [
     component: UserContextExampleWithMemoValue,
     name: UserContextExampleWithMemoValue.name,
   },
+
+  // Управление вложенностью.
+
   { component: DeepNesting, name: DeepNesting.name },
   { component: DeepNestingWithOneMemo, name: DeepNestingWithOneMemo.name },
   { component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
   { component: DeepNestingWithChildren, name: DeepNestingWithChildren.name },
+
+  // Suspense.
+
+  { component: ReactQuery, name: ReactQuery.name },
+  { component: ReactQueryWithConditions, name: ReactQueryWithConditions.name },
+  { component: ReactQueryWithSuspense, name: ReactQueryWithSuspense.name },
+
+  // Не тупить.
+
   { component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
   {
     component: MultiUpdateWithUseReducer,
     name: MultiUpdateWithUseReducer.name,
   },
-  { component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
-  { component: FutureStartTransition, name: FutureStartTransition.name },
+
   { component: InitUseState, name: InitUseState.name },
   { component: InitUseStateWithCallback, name: InitUseStateWithCallback.name },
+
+  { component: ContextAsGlobalState, name: ContextAsGlobalState.name },
+  {
+    component: ContextAsGlobalStateWithSelector,
+    name: ContextAsGlobalStateWithSelector.name,
+  },
+
+  // Extra инструменты
+
+  { component: Scroll, name: Scroll.name },
+  { component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
+
   { component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
   {
     component: ReallyHeavyCalculationWithinWorker,
     name: ReallyHeavyCalculationWithinWorker.name,
   },
+
   { component: SlowQuery, name: SlowQuery.name },
   { component: SlowQueryWithPreFetch, name: SlowQueryWithPreFetch.name },
   { component: SlowQueryWithPrediction, name: SlowQueryWithPrediction.name },
@@ -73,13 +109,11 @@ const routes = [
     component: SlowQueryWithPredictionButtons,
     name: SlowQueryWithPredictionButtons.name,
   },
-  { component: Scroll, name: Scroll.name },
-  { component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
-  { component: ContextAsGlobalState, name: ContextAsGlobalState.name },
-  {
-    component: ContextAsGlobalStateWithSelector,
-    name: ContextAsGlobalStateWithSelector.name,
-  },
+
+  // Future.
+
+  { component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
+  { component: FutureStartTransition, name: FutureStartTransition.name },
 ];
 
 function App() {
