@@ -1,7 +1,11 @@
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { useState, useRef, useEffect } from "react";
+import TestRenderer from "react-test-renderer";
 
 export default function DeepNestingPage() {
+  const tree = TestRenderer.create(<DeepNesting />).toTree();
+  console.log("tree", tree);
+
   return (
     <>
       <h1>DeepNesting</h1>
@@ -51,6 +55,10 @@ function UpdateCounter({ children, name }) {
 }
 
 const code = `
+function Page = () => (
+  <DeepNesting />
+)
+
 function DeepNesting() {
     const [x, setX] = useState(0)
 

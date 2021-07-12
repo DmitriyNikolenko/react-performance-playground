@@ -1,12 +1,6 @@
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
-import {
-  useRef,
-  useEffect,
-  createContext,
-  useContext,
-  useReducer,
-  useMemo,
-} from "react";
+import { useRef, useEffect, useReducer, useMemo } from "react";
+import { createContext, useContextSelector } from "use-context-selector";
 
 export default function ContextAsGlobalStateWithSelectorPage() {
   return (
@@ -17,7 +11,9 @@ export default function ContextAsGlobalStateWithSelectorPage() {
           <ContextAsGlobalStateWithSelector />
         </section>
         <aside>
-          <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[2, 22, 23]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -46,14 +42,15 @@ const UserProvider = ({ children }) => {
 };
 
 const UserPropertyHandler = ({ propName, actionName }) => {
-  const { state, dispatch } = useContext(UserContext);
+  const prop = useContextSelector(UserContext, ({ state }) => state[propName]);
+  const dispatch = useContextSelector(UserContext, ({ dispatch }) => dispatch);
 
   const updatedTimes = useRef(0);
   useEffect(() => updatedTimes.current++);
 
   return (
     <button onClick={() => dispatch({ type: actionName })}>
-      {propName} = {state[propName]} (updated times {updatedTimes.current})
+      {propName} = {prop} (updated times {updatedTimes.current})
     </button>
   );
 };
@@ -61,14 +58,19 @@ const UserPropertyHandler = ({ propName, actionName }) => {
 const ContextAsGlobalStateWithSelector = () => (
   <UserProvider>
     <UserPropertyHandler propName="age" actionName="incrementAge" />
-    <br /><br />
-    <UserPropertyHandler propName="caughtFish" actionName="incrementCaughtFish" />
+    <br />
+    <br />
+    <UserPropertyHandler
+      propName="caughtFish"
+      actionName="incrementCaughtFish"
+    />
   </UserProvider>
 );
 
 const code = `
-const UserContext = createContext();
+import { createContext, useContextSelector } from 'use-context-selector';
 
+const UserContext = createContext();
 const initialState = { age: 18, caughtFish: 0 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -86,7 +88,8 @@ const UserProvider = ({ children }) => {
 };
 
 const UserPropertyHandler = ({ propName, actionName }) => {
-  const { state, dispatch } = useContext(UserContext);
+  const prop = useContextSelector(UserContext, ({ state }) => state[propName]);
+  const dispatch = useContextSelector(UserContext, ({ dispatch }) => dispatch);
 
   return (
     <button onClick={() => dispatch({ type: actionName })}>

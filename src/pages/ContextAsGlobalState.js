@@ -61,14 +61,17 @@ const UserPropertyHandler = ({ propName, actionName }) => {
 const ContextAsGlobalState = () => (
   <UserProvider>
     <UserPropertyHandler propName="age" actionName="incrementAge" />
-    <br /><br />
-    <UserPropertyHandler propName="caughtFish" actionName="incrementCaughtFish" />
+    <br />
+    <br />
+    <UserPropertyHandler
+      propName="caughtFish"
+      actionName="incrementCaughtFish"
+    />
   </UserProvider>
 );
 
 const code = `
 const UserContext = createContext();
-
 const initialState = { age: 18, caughtFish: 0 };
 const reducer = (state, action) => {
   switch (action.type) {

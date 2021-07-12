@@ -52,6 +52,10 @@ function UpdateCounter({ children, name, passedProp }) {
 const MemoizedUpdateCounter = memo(UpdateCounter);
 
 const code = `
+function Page = () => (
+  <DeepNesting />
+)
+
 const MemoizedUpdateCounter = memo(UpdateCounter)
 
 function DeepNesting() {

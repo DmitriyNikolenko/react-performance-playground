@@ -14,12 +14,14 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-syntax-highlighter": "^15.4.3",
+    "react-test-renderer": "^17.0.2",
     "scheduler": "^0.20.2",
     "use-context-selector": "^1.3.7",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "format": "yarn prettier ./src --write",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

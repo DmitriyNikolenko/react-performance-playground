@@ -12,6 +12,7 @@ import UserContextExampleWithMemoValue from "./pages/UserContextExampleWithMemoV
 import DeepNesting from "./pages/DeepNesting";
 import DeepNestingWithOneMemo from "./pages/DeepNestingWithOneMemo";
 import DeepNestingWithAllMemo from "./pages/DeepNestingWithAllMemo";
+import DeepNestingWithChildren from "./pages/DeepNestingWithChildren";
 import MultiUpdateWithUseState from "./pages/MultiUpdateWithUseState";
 import MultiUpdateWithUseReducer from "./pages/MultiUpdateWithUseReducer";
 import FutureAutomaticBatching from "./pages/FutureAutomaticBatching";
@@ -50,6 +51,7 @@ const routes = [
   { component: DeepNesting, name: DeepNesting.name },
   { component: DeepNestingWithOneMemo, name: DeepNestingWithOneMemo.name },
   { component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
+  { component: DeepNestingWithChildren, name: DeepNestingWithChildren.name },
   { component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
   {
     component: MultiUpdateWithUseReducer,
@@ -74,7 +76,10 @@ const routes = [
   { component: Scroll, name: Scroll.name },
   { component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
   { component: ContextAsGlobalState, name: ContextAsGlobalState.name },
-  { component: ContextAsGlobalStateWithSelector, name: ContextAsGlobalStateWithSelector.name },
+  {
+    component: ContextAsGlobalStateWithSelector,
+    name: ContextAsGlobalStateWithSelector.name,
+  },
 ];
 
 function App() {
