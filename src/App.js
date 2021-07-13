@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import SiblingComponentWithMemo from "./pages/SiblingComponentWithMemo";
 import SiblingComponentWithoutMemo from "./pages/SiblingComponentWithoutMemo";
+import SiblingMemoComponentWithCallback from "./pages/SiblingMemoComponentWithCallback";
+import SiblingMemoComponentWithMemoizedCallback from "./pages/SiblingMemoComponentWithMemoizedCallback";
 import SyncCalculation from "./pages/SyncCalculation";
 import SyncCalculationWithUseMemo from "./pages/SyncCalculationWithUseMemo";
 import SyncCalculationWithFastMemo from "./pages/SyncCalculationWithFastMemo";
@@ -52,6 +54,8 @@ const routes = [
     name: SiblingComponentWithoutMemo.name,
   },
   { component: SiblingComponentWithMemo, name: SiblingComponentWithMemo.name },
+  { component: SiblingMemoComponentWithCallback, name: SiblingMemoComponentWithCallback.name },
+  { component: SiblingMemoComponentWithMemoizedCallback, name: SiblingMemoComponentWithMemoizedCallback.name },
 
   { component: UserContextExample, name: UserContextExample.name },
   {
