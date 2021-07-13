@@ -32,6 +32,8 @@ import Scroll from "./pages/Scroll";
 import ScrollWithLazyLoad from "./pages/ScrollWithLazyLoad";
 import ContextAsGlobalState from "./pages/ContextAsGlobalState";
 import ContextAsGlobalStateWithSelector from "./pages/ContextAsGlobalStateWithSelector";
+import TwoTasks from "./pages/TwoTasks";
+import TwoTasksWithIdleCallback from "./pages/TwoTasksWithIdleCallback";
 
 const routes = [
   // Основы мемоизации.
@@ -95,6 +97,9 @@ const routes = [
 
   { component: Scroll, name: Scroll.name },
   { component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
+
+  { component: TwoTasks, name: TwoTasks.name },
+  { component: TwoTasksWithIdleCallback, name: TwoTasksWithIdleCallback.name },
 
   { component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
   {
