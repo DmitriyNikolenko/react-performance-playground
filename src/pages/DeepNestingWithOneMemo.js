@@ -10,7 +10,7 @@ export default function DeepNestingWithOneMemoPage() {
           <DeepNestingWithOneMemo />
         </section>
         <aside>
-          <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[15,24,30]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -60,6 +60,15 @@ const code = `
 function Page = () => (
   <DeepNesting />
 )
+
+function UpdateCounter({ children, name }) {
+  return (
+    <blockquote>
+      <b>{name}</b>
+      {children}
+    </blockquote>
+  );
+}
 
 const MemoizedUpdateCounter = memo(UpdateCounter)
 

@@ -25,15 +25,15 @@ function MultiUpdateWithUseState() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState({});
 
-  const loadUser = useCallback(async () => {
+  const loadUser = async () => {
     setIsLoading(true);
     const user = await new Promise((res) =>
-      setTimeout(res({ name: "Vasya", age: 10 }), 500)
+      setTimeout(res({ name: "Vasya", age: 10 }), 1500)
     );
     setUser(user);
     setIsLoading(false);
     setIsLoaded(true);
-  }, []);
+  };
 
   return (
     <>
@@ -43,9 +43,9 @@ function MultiUpdateWithUseState() {
 
       <pre>
         {`
-            isLoading=${isLoading}
-            isLoaded=${isLoaded}
-            user=${JSON.stringify(user)}`}
+isLoading=${isLoading}
+isLoaded=${isLoaded}
+user=${JSON.stringify(user)}`}
       </pre>
     </>
   );
@@ -53,22 +53,18 @@ function MultiUpdateWithUseState() {
 
 const code = `
 function MultiUpdateWithUseState() {
-    const [isLoading, setIsLoading] = useState(false) 
-    const [isLoaded, setIsLoaded] = useState(false)
-    const [user, setUser] = useState({})
+  const [isLoading, setIsLoading] = useState(false) 
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [user, setUser] = useState({})
 
-    const loadUser = useCallback(async () => {
-        setIsLoading(true)
-        const user = await new Promise(res => setTimeout(res({ name: "Vasya", age: 10 }), 500))
-        setUser(user)
-        setIsLoading(false)
-        setIsLoaded(true)
-    }, [])
+  const loadUser = async () => {
+      setIsLoading(true)
+      const user = await fetchUser()
+      setUser(user)
+      setIsLoading(false)
+      setIsLoaded(true)
+  }
 
-    return (
-      <>
-        <button onClick={() => loadUser()}>Updated {updatedTimes.current} times</button> 
-      </>
-  )
+  return <button onClick={() => loadUser()}>Updated {updatedTimes.current} times</button> 
 }
 `;

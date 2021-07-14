@@ -4,13 +4,13 @@ import { useState } from "react";
 export default function InitUseStateWithCallbackPage() {
   return (
     <>
-      <h1>InitUseState</h1>
+      <h1>InitUseStateWithCallback</h1>
       <main>
         <section>
-          <InitUseStateWithCallback ms={1000} />
+          <Page />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[8]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[7]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -20,37 +20,47 @@ export default function InitUseStateWithCallbackPage() {
 const heavyCalculation = (ms) => {
   const end = Date.now() + ms;
   while (Date.now() < end) continue;
-  return end;
+  return ms;
 };
 
-const InitUseStateWithCallback = ({ ms }) => {
-  let startTime = Date.now();
-  const [value, setValue] = useState(() => heavyCalculation(ms));
+const Page = () => {
+  const [isShowed, setIsShowed] = useState(false);
 
+    return (
+    <>
+      <button onClick={() => setIsShowed((isShowed) => !isShowed)}>
+        Show / hide
+      </button>
+      {isShowed ? <InitUseStateWithCallback ms={1000} /> : <p>спрятано</p>}
+    </>
+  );
+}
+
+const InitUseStateWithCallback = ({ ms }) => {
+  const [x, setX] = useState(0);
+  let startTime = Date.now();
+
+  const [value, setValue] = useState(() => heavyCalculation(ms));
+  
   return (
     <>
-      <p>Value {value}</p>
-      <button onClick={() => setValue(Date.now())}>
-        Remaining time {startTime - Date.now()} ms
+      <p>update time {Date.now() - startTime} ms</p>
+      <button onClick={() => setX((x) => x + 1)}>
+        Do something (updated {x} times)
       </button>
     </>
   );
 };
 
 const code = `
-const InitUseStatePage = () => (
-   <InitUseState ms={1000} />
+const Page = () => (
+   <InitUseState data={data} />
 )
 
-const InitUseState = ({ ms }) => {
-  let startTime = Date.now()
-  const [value, setValue] = useState(() => heavyCalculation(ms))
+const InitUseState = ({ data }) => {
+  const [value, setValue] = useState(() => heavyCalculation(data))
 
-  return (
-    <>
-      <p>Value {value}</p>
-      <button onClick={() => setValue(Date.now())}>Remaining time {startTime - Date.now()} ms</button>
-    </>
-  )
-}
+  const [x, setX] = useState(0)
+
+  return <button onClick={() => setX(x => x + 1)}>Do something</button>
 `;

@@ -37,13 +37,13 @@ function MultiUpdateWithUseReducer() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const loadUser = useCallback(async () => {
+  const loadUser = async () => {
     dispatch({ type: "load" });
     const user = await new Promise((res) =>
       setTimeout(res({ name: "Vasya", age: 10 }), 500)
     );
     dispatch({ type: "save", user });
-  }, []);
+  }
 
   return (
     <>
@@ -53,9 +53,9 @@ function MultiUpdateWithUseReducer() {
 
       <pre>
         {`
-            isLoading=${state.isLoading}
-            isLoaded=${state.isLoaded}
-            user=${JSON.stringify(state.user)}`}
+isLoading=${state.isLoading}
+isLoaded=${state.isLoaded}
+user=${JSON.stringify(state.user)}`}
       </pre>
     </>
   );
@@ -74,18 +74,14 @@ const reducer = (state, action) => {
 const initialState = { isLoading: false, isLoaded: false, user: {} }
 
 function MultiUpdateWithUseReducer() {
-    const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-    const loadUser = useCallback(async () => {
-      dispatch({ type: "load" })
-      const user = await new Promise(res => setTimeout(res({ name: "Vasya", age: 10 }), 500))
-      dispatch({ type: "save", user })
-    }, [])
+  const loadUser = async () => {
+    dispatch({ type: "load" })
+    const user = await fetchUser()
+    dispatch({ type: "save", user })
+  }
 
-    return (
-      <>
-        <button onClick={() => loadUser()}>Updated {updatedTimes.current} times</button> 
-      </>
-  )
+  return <button onClick={() => loadUser()}>Updated {updatedTimes.current} times</button> 
 }
 `;

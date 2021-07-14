@@ -19,12 +19,11 @@ export default function NostradamusButton() {
       ref={buttonRef}
       style={{
         backgroundColor: isFuture ? "green" : undefined,
-        width: 100,
+        width: 200,
         height: 60,
       }}
     >
-      Nostradamus <br />
-      Button
+      Nostradamus <br /> Button
     </button>
   );
 }

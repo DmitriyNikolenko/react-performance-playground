@@ -13,7 +13,7 @@ export default function ScrollWithLazyLoadPage() {
           <ScrollWithLazyLoad />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[2, 13, 15]}>
+          <SyntaxHighlighter accentedLines={[2, 6,8]}>
             {code}
           </SyntaxHighlighter>
         </aside>
@@ -57,20 +57,10 @@ const code = `
 import LazyLoad from 'react-lazyload';
 
 const ScrollWithLazyLoad = () => {
-    const [isShowed, setIsShowed] = useState(false)
-
-    return (
-        <>
-            <button onClick={() => setIsShowed(isShowed => !isShowed)}>Show / hide</button>
-
-            {isShowed 
-                ? Array(10).fill(null).map((_, index) => 
-                    <LazyLoad key={index} height={300} once>
-                       <HeavySection key={index} index={index} />
-                    </LazyLoad>
-                )
-                : <p>спрятано</p>}
-        </>
-    )
+  return list.map((_, index) => (
+    <LazyLoad key={index} height={300} once>
+      <HeavySection key={index} index={index} />
+    </LazyLoad>
+  )
 }
 `;

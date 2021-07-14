@@ -22,15 +22,15 @@ export default function TwoTasksPage() {
 const TwoTasks = () => {
   const [isShowed, setIsShowed] = useState(false);
 
-  const [regionId, setRegionId] = useState(10);
+  const [regionId, setRegionId] = useState(30);
 
   return (
     <>
       <div>
         <p>Current region is {regionId}</p>
-        <button onClick={() => setRegionId(10)}>region ID is 20</button>
-        <button onClick={() => setRegionId(15)}>region ID is 25</button>
-        <button onClick={() => setRegionId(20)}>region ID is 30</button>
+        <button onClick={() => setRegionId(20)}>region ID is 20</button>
+        <button onClick={() => setRegionId(25)}>region ID is 25</button>
+        <button onClick={() => setRegionId(30)}>region ID is 30</button>
       </div>
       <br />
       <button onClick={() => setIsShowed((isShowed) => !isShowed)}>

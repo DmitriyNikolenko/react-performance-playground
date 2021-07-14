@@ -10,7 +10,7 @@ export default function SiblingMemoComponentWithMemoizedCallbackPage() {
           <SiblingMemoComponentWithMemoizedCallback />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[14]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[5]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -53,5 +53,5 @@ export default function Counter() {
   );
 }
 
-const UpdateCounter = React.memo(() => { /* Do something */ })
+const UpdateCounter = React.memo(() =>  { /* count component updates */ })
 `;

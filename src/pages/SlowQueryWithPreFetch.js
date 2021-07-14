@@ -18,7 +18,7 @@ export default function SlowQueryWithPreFetchPage() {
           <SlowQueryWithPreFetch />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[8]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </QueryClientProvider>
@@ -30,6 +30,7 @@ const SlowQueryWithPreFetch = () => {
 
   return (
     <>
+    <br /><br /><br /><br /><br /><br /><br />
       <button
         onClick={() => setIsShowed((isShowed) => !isShowed)}
         onMouseEnter={() => queryClient.prefetchQuery("longQuery", longQuery)}
@@ -57,28 +58,25 @@ const ComponentWithQuery = () => {
 
 const code = `
 const SlowQueryWithPreFetch = () => {
-    const [isShowed, setIsShowed] = useState(false)
+  const [isShowed, setIsShowed] = useState(false)
 
-    return (
-        <>
-            <button 
-                onClick={() => setIsShowed(isShowed => !isShowed)}
-                onMouseEnter={() => queryClient.prefetchQuery("longQuery", longQuery)}
-            >
-                Show / hide
-            </button>
-            {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
-        </>
-    )
+  return (
+    <>
+      <button 
+          onMouseEnter={() => queryClient.prefetchQuery("longQuery", longQuery)}
+      >
+          Show / hide
+      </button>
+      {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
+    </>
+  )
 }
 
 const ComponentWithQuery = () => {
-    const renderTime = useRef(Date.now())
+  const { data } = useQuery("longQuery", longQuery)
 
-    const { data } = useQuery("longQuery", longQuery)
-
-    return data 
-        ? <p>Загружено: {data} за {Date.now() - renderTime.current} мс</p> 
-        : <p>загружаемся...</p>
+  return data 
+    ? <p>Загружено: {data}</p> 
+    : <p>загружаемся...</p>
 }
 `;

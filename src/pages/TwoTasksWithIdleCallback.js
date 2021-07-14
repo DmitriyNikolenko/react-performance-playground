@@ -12,7 +12,7 @@ export default function TwoTasksWithIdleCallbackPage() {
           <TwoTasksWithIdleCallback />
         </section>
         <aside>
-          <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[33]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>

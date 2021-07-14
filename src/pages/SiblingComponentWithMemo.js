@@ -49,5 +49,5 @@ export default function Counter() {
   );
 }
 
-const UpdateCounter = React.memo(() => { /* Do something */ })
+const UpdateCounter = React.memo(() =>  { /* count component updates */ })
 `;

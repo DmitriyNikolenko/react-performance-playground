@@ -45,9 +45,7 @@ function UpdateCounter({ children, name }) {
 
   return (
     <blockquote>
-      <p>
-        <b>{name}</b> updated times {updatedTimes.current}
-      </p>
+      <p><b>{name}</b> updated times {updatedTimes.current}</p>
       <br />
       {children}
     </blockquote>
@@ -58,6 +56,15 @@ const code = `
 function Page = () => (
   <DeepNesting />
 )
+
+function UpdateCounter({ children, name }) {
+  return (
+    <blockquote>
+      <b>{name}</b>
+      {children}
+    </blockquote>
+  );
+}
 
 function DeepNesting() {
     const [x, setX] = useState(0)

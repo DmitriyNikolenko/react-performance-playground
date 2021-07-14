@@ -13,7 +13,7 @@ export default function ReactQueryWithSuspense() {
           <Loader />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[10, 12]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[6,8,17]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </QueryClientProvider>
@@ -60,29 +60,24 @@ const ComponentWithQuery = () => {
 };
 
 const code = `
-    const Loader = () => {
-        const [isShowed, setIsShowed] = useState(false)
+const Loader = () => {
+  const [isShowed, setIsShowed] = useState(false)
 
-        return (
-            <>
-                <button onClick={() => setIsShowed(isShowed => !isShowed)}>Show / hide</button>
+  return isShowed ? (
+    <Suspense fallback={<p>Loading...</p>}>
+        <ComponentWithQuery />
+    </Suspense>
+  ) : (
+    <p>спрятано</p>
+  )
+}
 
-                {isShowed ? (
-                    <Suspense fallback={<p>Loading...</p>}>
-                        <ComponentWithQuery />
-                    </Suspense>
-                ) : (
-                    <p>спрятано</p>
-                )}
-            </>
-        )
-    }
+const ComponentWithQuery = () => {
+  // Here heavy calculations.
+    
+  const { data } = useQuery("longQuery", longQuery, { suspense: true })
 
-    const ComponentWithQuery = () => {
-        // Here heavy calculations.
-        
-        const { data } = useQuery("longQuery", longQuery, { suspense: true })
-
-        return data.map(message => <p>{message}</p>) ?? <p>загружаемся (этого вы тоже не увидите)</p>
-    }
+  return data.map(message => <p>{message}</p>) || 
+    <p>загружаемся (этого вы тоже не увидите)</p>
+}
 `;

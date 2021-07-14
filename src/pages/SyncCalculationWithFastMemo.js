@@ -13,7 +13,7 @@ export default function SyncCalculationWithFastMemoPage() {
           <SyncCalculationWithFastMemo />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[2, 21, 30]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[2, 10, 16]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -76,28 +76,14 @@ import fastMemoize from "fast-memoize"
 const SyncCalculationWithFastMemo = () => {
   const [daysNumber, setDaysNumber] = useState(10);
 
-  return (
-    <>
-      <div>
-        <p>Current number of days is {daysNumber}</p>
-        <button onClick={() => setDaysNumber(10)}>stat for 10 days</button>
-        <button onClick={() => setDaysNumber(15)}>stat for 15 days</button>
-        <button onClick={() => setDaysNumber(20)}>stat for 20 days</button>
-        <button onClick={() => setDaysNumber(25)}>stat for 25 days</button>
-      </div>
-      <Stat daysNumber={daysNumber} />
-    </>
-  )
+  return <Stat daysNumber={daysNumber} />
 }
 
 const memoizedCalcStatFor = fastMemoize(calcStatFor);
 
 const Stat = ({ number }) => {
   const [isLoading, setIsLoading] = useState(false)
-  const saveStatToAPI = () => {
-    setIsLoading(true)
-    setTimeout(() => void setIsLoading(false), 1000)
-  }
+  const saveStatToAPI = () => { /* sanding request */ }
 
   const result = memoizedCalcStatFor(daysNumber) // expensive calculation
 

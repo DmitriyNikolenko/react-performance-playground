@@ -32,7 +32,7 @@ export default function DeepNestingWithChildrenMemoPage() {
           </DeepNesting>
         </section>
         <aside>
-          <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[3,11,29]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -77,13 +77,21 @@ function Page = () => (
   </DeepNesting>
 )
 
+function UpdateCounter({ children, name }) {
+  return (
+    <blockquote>
+      <b>{name}</b>
+      {children}
+    </blockquote>
+  );
+}
+
 function DeepNesting({ children }) {
     const [x, setX] = useState(0)
 
     return (
       <>
         <button onClick={() => setX(x => x + 1)}>Clicked {x} times</button> 
-
         {children}
       </>
   )

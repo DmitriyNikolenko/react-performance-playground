@@ -53,24 +53,19 @@ const ComponentWithQuery = () => {
 };
 
 const code = `
-    const Loader = () => {
-        const [isShowed, setIsShowed] = useState(false)
+const Loader = () => {
+  const [isShowed, setIsShowed] = useState(false)
 
-        return (
-            <>
-                <button onClick={() => setIsShowed(isShowed => !isShowed)}>Show / hide</button>
-                {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
-            </>
-        )
-    }
+  return isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>
+}
 
-    const ComponentWithQuery = () => {
-        // Here heavy calculations.
+const ComponentWithQuery = () => {
+    // Here heavy calculations.
 
-        const { data } = useQuery("longQuery", longQuery)
+    const { data } = useQuery("longQuery", longQuery)
 
-        return Array.isArray(data) 
-            ? data.map(message => <p>{message}</p>) 
-            : <p>загружаемся</p>
-    }
+    return Array.isArray(data)
+        ? data.map(message => <p>{message}</p>) 
+        : <p>загружаемся</p>
+}
 `;

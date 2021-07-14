@@ -48,18 +48,6 @@ const HeavySection = ({ index }) => (
 
 const code = `
 const Scroll = () => {
-    const [isShowed, setIsShowed] = useState(false)
-
-    return (
-        <>
-            <button onClick={() => setIsShowed(isShowed => !isShowed)}>Show / hide</button>
-
-            {isShowed 
-                ? Array(10).fill(null).map((_, index) => 
-                    <HeavySection key={index} index={index} />
-                )
-                : <p>спрятано</p>}
-        </>
-    )
+  return list.map((_, index) => <HeavySection key={index} index={index} />
 }
 `;

@@ -16,7 +16,7 @@ export default function UserContextExampleWithMemo() {
           <FatContext />
         </section>
         <aside>
-          <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[13, 19]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -54,7 +54,7 @@ const UserSetter = React.memo(({ name }) => {
   );
 });
 
-const FatContext = ({ children }) => {
+const FatContext = () => {
   const [x, setX] = useState(0);
 
   return (
@@ -82,34 +82,29 @@ const UserProvider = ({ children }) => {
     )
 }
 
-// const UserShower = React.memo(({ name }) => {
-//     const { user } = useContext(UserContext)
-//     return (
-//        <p>User = {JSON.stringify(user)}</p>
-//     )
-// })
+const UserShower = React.memo(({ name }) => {
+    const { user } = useContext(UserContext)
+    
+    return <p>User = {JSON.stringify(user)}</p>
+})
 
 const UserSetter = React.memo(({ name }) => {
     const { setUser } = useContext(UserContext)
-    return (
-        <div>
-            <h4>{name}</h4>
-            <button onClick={() => setUser({ name })}>set name {name}</button>
-        </div>
-    )
+
+    return <button onClick={() => setUser({ name })}>set name {name}</button>
 })
 
-const FatContext = ({ children }) => {
-    return (
-        <UserProvider>
-            <button onClick={() => setX(x => x + 1)}>Clicked {x} times</button> 
+const FatContext = () => {
+  const [x, setX] = useState(0);
 
-            <UserShower />
-
-            <UserSetter name="Obama" />
-            <UserSetter name="Kennedy" />
-            <UserSetter name="John" />
-        </UserProvider>
-    )
+  return (
+      <UserProvider>
+          <button onClick={() => setX(x => x + 1)}>Clicked {x} times</button> 
+          <UserShower />
+          <UserSetter name="Obama" />
+          <UserSetter name="Kennedy" />
+          <UserSetter name="John" />
+      </UserProvider>
+  )
 }
 `;

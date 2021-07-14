@@ -9,12 +9,7 @@ export default function SlowQueryWithPredictionButtonsPage() {
     <QueryClientProvider client={queryClient}>
       <h1>SlowQueryWithPredictionButtons</h1>
       <main>
-        <section>
-          <SlowQueryWithPredictionButtons />
-        </section>
-        <aside>
-          <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
-        </aside>
+        <SlowQueryWithPredictionButtons />
       </main>
     </QueryClientProvider>
   );
@@ -23,8 +18,17 @@ export default function SlowQueryWithPredictionButtonsPage() {
 const SlowQueryWithPredictionButtons = () => {
   return (
     <>
+      <br /><br /><br /><br /><br /><br /><br />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        {Array(5)
+        {Array(3)
+          .fill(null)
+          .map((_, id) => (
+            <NostradamusButton key={id} />
+          ))}
+      </div>
+            <br /><br /><br /><br /><br /><br /><br />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {Array(3)
           .fill(null)
           .map((_, id) => (
             <NostradamusButton key={id} />
@@ -33,13 +37,3 @@ const SlowQueryWithPredictionButtons = () => {
     </>
   );
 };
-
-const code = `
-<div style={{ display: "flex", justifyContent: "space-between" }}>
-    <NostradamusButton />
-    <NostradamusButton />
-    <NostradamusButton />
-    <NostradamusButton />
-    <NostradamusButton />
-</div>
-`;

@@ -17,7 +17,7 @@ export default function ContextAsGlobalStatePage() {
           <ContextAsGlobalState />
         </section>
         <aside>
-          <SyntaxHighlighter>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[3,19,20,21,22,23,24,25,26,27]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>

@@ -12,7 +12,7 @@ export default function SyncCalculationPage() {
           <SyncCalculation />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[26]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[12]}>{code}</SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -70,28 +70,14 @@ const code = `
 const SyncCalculation = () => {
   const [daysNumber, setDaysNumber] = useState(10);
 
-  return (
-    <>
-      <div>
-        <p>Current number of days is {daysNumber}</p>
-        <button onClick={() => setDaysNumber(10)}>stat for 10 days</button>
-        <button onClick={() => setDaysNumber(15)}>stat for 15 days</button>
-        <button onClick={() => setDaysNumber(20)}>stat for 20 days</button>
-        <button onClick={() => setDaysNumber(25)}>stat for 25 days</button>
-      </div>
-      <Stat daysNumber={daysNumber} />
-    </>
-  )
+  return <Stat daysNumber={daysNumber} />
 }
 
 const Stat = ({ number }) => {
   const [isLoading, setIsLoading] = useState(false)
-  const saveStatToAPI = () => {
-    setIsLoading(true)
-    setTimeout(() => void setIsLoading(false), 1000)
-  }
+  const saveStatToAPI = () => { /* sanding request */ }
 
-  const result = calcStatFor(daysNumber) // expensive calculation
+  const result = calculateStatistics(daysNumber) // expensive calculation
 
   return (
     <>

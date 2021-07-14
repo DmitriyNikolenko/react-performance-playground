@@ -19,7 +19,7 @@ export default function SlowQueryWithPredictionPage() {
           <SlowQueryWithPrediction />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[2, 7, 8, 9, 10, 11, 12, 13, 18]}>
+          <SyntaxHighlighter accentedLines={[2, 5, 6, 7, 8, 9, 13]}>
             {code}
           </SyntaxHighlighter>
         </aside>
@@ -45,6 +45,7 @@ const SlowQueryWithPrediction = () => {
 
   return (
     <>
+      <br /><br /><br /><br /><br /><br /><br />
       <button
         ref={buttonRef}
         onClick={() => setIsShowed((isShowed) => !isShowed)}
@@ -74,36 +75,27 @@ const code = `
 import futurelink from 'futurelink';
 
 const SlowQueryWithPrediction = () => {
-    const [isShowed, setIsShowed] = useState(false)
+  const buttonRef = useRef()
+  useEffect(() => futurelink({
+    links: [buttonRef.current],
+    future: (link) =>  queryClient.prefetchQuery("longQuery", longQuery),
+  }), [buttonRef])
 
-    const buttonRef = useRef()
-    useEffect(() => futurelink({
-        links: [buttonRef.current],
-        future: (link) => {
-            queryClient.prefetchQuery("longQuery", longQuery)
-        },
-    }), [buttonRef])
-
-    return (
-        <>
-            <button
-                ref={buttonRef}
-                onClick={() => setIsShowed(isShowed => !isShowed)}
-            >
-                Show / hide
-            </button>
-            {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
-        </>
-    )
+  return (
+    <>
+      <button ref={buttonRef}>
+          Show / hide
+      </button>
+      {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
+    </>
+  )
 }
 
 const ComponentWithQuery = () => {
-    const renderTime = useRef(Date.now())
+  const { data } = useQuery("longQuery", longQuery)
 
-    const { data } = useQuery("longQuery", longQuery)
-
-    return data 
-        ? <p>Загружено: {data} за {Date.now() - renderTime.current} мс</p> 
-        : <p>загружаемся...</p>
+  return data 
+    ? <p>Загружено: {data}</p> 
+    : <p>загружаемся...</p>
 }
 `;

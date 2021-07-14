@@ -49,5 +49,5 @@ export default function Counter() {
   );
 }
 
-const UpdateCounter = () => { /* Do something */ }
+const UpdateCounter = () => { /* count component updates */ }
 `;

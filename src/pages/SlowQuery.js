@@ -25,6 +25,7 @@ const SlowQuery = () => {
 
   return (
     <>
+    <br /><br /><br /><br /><br /><br /><br />
       <button onClick={() => setIsShowed((isShowed) => !isShowed)}>
         Show / hide
       </button>
@@ -44,7 +45,7 @@ const ComponentWithQuery = () => {
 
   return data ? (
     <p>
-      Загружено: {data} за {Date.now() - renderTime.current} мс
+      Загружено: <b>{data}</b> за {Date.now() - renderTime.current} мс
     </p>
   ) : (
     <p>загружаемся...</p>
@@ -53,27 +54,22 @@ const ComponentWithQuery = () => {
 
 const code = `
 const SlowQuery = () => {
-    const [isShowed, setIsShowed] = useState(false)
+  const [isShowed, setIsShowed] = useState(false)
 
-    return (
-        <>
-            <button 
-                onClick={() => setIsShowed(isShowed => !isShowed)}
-            >
-                Show / hide
-            </button>
-            {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
-        </>
-    )
+  return (
+    <>
+      <button>Show / hide</button>
+
+      {isShowed ?  <ComponentWithQuery /> : <p>спрятано</p>}
+    </>
+  )
 }
 
 const ComponentWithQuery = () => {
-    const renderTime = useRef(Date.now())
+  const { data } = useQuery("longQuery", longQuery)
 
-    const { data } = useQuery("longQuery", longQuery)
-
-    return data 
-        ? <p>Загружено: {data} за {Date.now() - renderTime.current} мс</p> 
-        : <p>загружаемся...</p>
+  return data 
+    ? <p>Загружено: {data}</p> 
+    : <p>загружаемся...</p>
 }
 `;
