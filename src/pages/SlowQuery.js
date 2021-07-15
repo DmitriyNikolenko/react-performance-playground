@@ -7,7 +7,7 @@ export default function SlowQueryPage() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>SlowQueryPage</h1>
+      <h1>"14.1 API работает не быстро"</h1>
       <main>
         <section>
           <SlowQuery />
@@ -25,7 +25,13 @@ const SlowQuery = () => {
 
   return (
     <>
-    <br /><br /><br /><br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <button onClick={() => setIsShowed((isShowed) => !isShowed)}>
         Show / hide
       </button>

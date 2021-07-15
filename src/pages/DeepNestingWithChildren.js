@@ -18,7 +18,7 @@ export default function DeepNestingWithChildrenMemoPage() {
 
   return (
     <>
-      <h1>DeepNestingWithChildren</h1>
+      <h1>"4.4 Передача компонентов через props"</h1>
       <main>
         <section>
           <DeepNesting>
@@ -32,7 +32,9 @@ export default function DeepNestingWithChildrenMemoPage() {
           </DeepNesting>
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[3,11,29]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[3, 11, 29]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </>

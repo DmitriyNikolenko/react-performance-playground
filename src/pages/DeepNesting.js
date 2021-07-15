@@ -8,7 +8,7 @@ export default function DeepNestingPage() {
 
   return (
     <>
-      <h1>DeepNesting</h1>
+      <h1>"4.1 Вложенные компоненты"</h1>
       <main>
         <section>
           <DeepNesting />
@@ -45,7 +45,9 @@ function UpdateCounter({ children, name }) {
 
   return (
     <blockquote>
-      <p><b>{name}</b> updated times {updatedTimes.current}</p>
+      <p>
+        <b>{name}</b> updated times {updatedTimes.current}
+      </p>
       <br />
       {children}
     </blockquote>

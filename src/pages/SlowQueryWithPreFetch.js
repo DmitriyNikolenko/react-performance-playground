@@ -12,13 +12,15 @@ const longQuery = async () => {
 export default function SlowQueryWithPreFetchPage() {
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>SlowQueryWithPreFetchPage</h1>
+      <h1>"14.2 А что если так?"</h1>
       <main>
         <section>
           <SlowQueryWithPreFetch />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[8]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter defaultHidden accentedLines={[8]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </QueryClientProvider>
@@ -30,7 +32,13 @@ const SlowQueryWithPreFetch = () => {
 
   return (
     <>
-    <br /><br /><br /><br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <button
         onClick={() => setIsShowed((isShowed) => !isShowed)}
         onMouseEnter={() => queryClient.prefetchQuery("longQuery", longQuery)}

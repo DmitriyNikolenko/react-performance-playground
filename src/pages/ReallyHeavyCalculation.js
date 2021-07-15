@@ -6,7 +6,7 @@ import { longTask } from "../utils/longTask";
 export default function ReallyHeavyCalculationPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculation</h1>
+      <h1>"13.1 Очень тяжёлые вычисления"</h1>
       <main>
         <section>
           <ReallyHeavyCalculation />

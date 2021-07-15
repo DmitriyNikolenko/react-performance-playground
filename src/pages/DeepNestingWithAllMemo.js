@@ -4,13 +4,15 @@ import { useState, useRef, useEffect, memo } from "react";
 export default function DeepNestingWithAllMemoPage() {
   return (
     <>
-      <h1>DeepNestingWithAllMemo</h1>
+      <h1>"4.3 Вложенные компоненты со всеми memo"</h1>
       <main>
         <section>
           <DeepNestingWithAllMemo />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[15,24,25,26,27,28,29,30]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[15, 24, 25, 26, 27, 28, 29, 30]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </>

@@ -10,7 +10,7 @@ import React, {
 export default function UserContextExampleWithMemo() {
   return (
     <>
-      <h1>UserContextExampleWithMemo</h1>
+      <h1>"8.2 Пробуем защититься от обновлений контекста"</h1>
       <main>
         <section>
           <FatContext />

@@ -3,7 +3,7 @@ import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 export default function FutureAutomaticBatching() {
   return (
     <>
-      <h1>FutureAutomaticBatching</h1>
+      <h1>"15.1 Будущее. Автоматический батчинг"</h1>
       <SyntaxHighlighter accentedLines={[9]}>{code}</SyntaxHighlighter>
     </>
   );

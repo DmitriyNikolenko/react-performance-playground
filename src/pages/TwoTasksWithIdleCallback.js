@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { Colorizer } from "../components/Colorizer";
-import { longTask } from '../utils/longTask'
+import { longTask } from "../utils/longTask";
 
 export default function TwoTasksWithIdleCallbackPage() {
   return (
     <>
-      <h1>TwoTasksWithIdleCallback</h1>
+      <h1>"12.2 Попробуем приоритезировать рассчёты"</h1>
       <main>
         <section>
           <TwoTasksWithIdleCallback />
@@ -41,10 +41,11 @@ const TwoTasksWithIdleCallback = () => {
           <RegionMap regionId={regionId} />
           <RegionStat regionId={regionId} />
         </>
-      ) : <p>спрятано</p>}
+      ) : (
+        <p>спрятано</p>
+      )}
     </>
   );
-
 };
 
 const RegionMap = ({ regionId }) => {
@@ -52,8 +53,8 @@ const RegionMap = ({ regionId }) => {
 
   useEffect(() => {
     setResult(null);
-    setResult(longTask(regionId * 200000))
-  }, [regionId])
+    setResult(longTask(regionId * 200000));
+  }, [regionId]);
 
   return (
     <>
@@ -62,7 +63,7 @@ const RegionMap = ({ regionId }) => {
       <Colorizer />
     </>
   );
-}
+};
 
 const RegionStat = ({ regionId }) => {
   const [result, setResult] = useState(null);
@@ -70,18 +71,20 @@ const RegionStat = ({ regionId }) => {
   useEffect(() => {
     requestIdleCallback(() => {
       setResult(null);
-      setResult(longTask(regionId * 200000))
-    })
-  }, [regionId])
+      setResult(longTask(regionId * 200000));
+    });
+  }, [regionId]);
 
   return (
     <>
       <h4>Region stat</h4>
-      <p>{result ? `Stat for region ${regionId} is ${result}` : "Loading..."}</p>
+      <p>
+        {result ? `Stat for region ${regionId} is ${result}` : "Loading..."}
+      </p>
       <Colorizer />
     </>
   );
-}
+};
 
 const code = `
 const TwoTasksWithIdleCallback = () => {

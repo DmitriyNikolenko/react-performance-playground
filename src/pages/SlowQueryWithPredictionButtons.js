@@ -18,7 +18,13 @@ export default function SlowQueryWithPredictionButtonsPage() {
 const SlowQueryWithPredictionButtons = () => {
   return (
     <>
-      <br /><br /><br /><br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         {Array(3)
           .fill(null)
@@ -26,7 +32,13 @@ const SlowQueryWithPredictionButtons = () => {
             <NostradamusButton key={id} />
           ))}
       </div>
-            <br /><br /><br /><br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         {Array(3)
           .fill(null)

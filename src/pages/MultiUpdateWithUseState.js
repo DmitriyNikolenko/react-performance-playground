@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback, useReducer } from "react";
 export default function MultiUpdateWithUseStatePage() {
   return (
     <>
-      <h1>MultiUpdateWithUseState</h1>
+      <h1>"7.1 Множество setState'ов"</h1>
       <main>
         <section>
           <MultiUpdateWithUseState />

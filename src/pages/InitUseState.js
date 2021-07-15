@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function InitUseStatePage() {
   return (
     <>
-      <h1>InitUseState</h1>
+      <h1>"6.1 Инициализируем useState"</h1>
       <main>
         <section>
           <Page />
@@ -26,7 +26,7 @@ const heavyCalculation = (ms) => {
 const Page = () => {
   const [isShowed, setIsShowed] = useState(false);
 
-    return (
+  return (
     <>
       <button onClick={() => setIsShowed((isShowed) => !isShowed)}>
         Show / hide
@@ -34,21 +34,21 @@ const Page = () => {
       {isShowed ? <InitUseState ms={1000} /> : <p>спрятано</p>}
     </>
   );
-}
+};
 
 const InitUseState = ({ ms }) => {
   const [x, setX] = useState(0);
   let startTime = Date.now();
 
   const [value, setValue] = useState(heavyCalculation(ms));
- 
+
   return (
     <>
-          <p>update time {Date.now() - startTime} ms</p>
-          <button onClick={() => setX((x) => x + 1)}>
-            Do something (updated {x} times)
-          </button>
-        </>
+      <p>update time {Date.now() - startTime} ms</p>
+      <button onClick={() => setX((x) => x + 1)}>
+        Do something (updated {x} times)
+      </button>
+    </>
   );
 };
 

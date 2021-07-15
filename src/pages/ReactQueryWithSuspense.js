@@ -7,13 +7,15 @@ export default function ReactQueryWithSuspense() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>ReactQueryWithSuspense</h1>
+      <h1>"5.3 Suspense!"</h1>
       <main>
         <section>
           <Loader />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[6,8,17]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[6, 8, 17]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </QueryClientProvider>

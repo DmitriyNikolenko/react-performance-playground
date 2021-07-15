@@ -7,7 +7,7 @@ export default function ReactQueryWithConditions() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>ReactQueryWithConditions</h1>
+      <h1>"5.2 Запрос на API с проверкой"</h1>
       <main>
         <section>
           <Loader />

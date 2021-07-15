@@ -7,13 +7,13 @@ import LazyLoad from "react-lazyload";
 export default function ScrollWithLazyLoadPage() {
   return (
     <>
-      <h1>ScrollWithLazyLoad</h1>
+      <h1>"11.2 Будем подгружать лениво"</h1>
       <main>
         <section>
           <ScrollWithLazyLoad />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[2, 6,8]}>
+          <SyntaxHighlighter accentedLines={[2, 6, 8]}>
             {code}
           </SyntaxHighlighter>
         </aside>

@@ -3,7 +3,7 @@ import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 export default function FutureStartTransition() {
   return (
     <>
-      <h1>FutureStartTransition</h1>
+      <h1>"15.2 Будущее. Переходы"</h1>
       <SyntaxHighlighter accentedLines={[10, 11, 12]}>{code}</SyntaxHighlighter>
     </>
   );

@@ -5,7 +5,7 @@ import { createContext, useContextSelector } from "use-context-selector";
 export default function ContextAsGlobalStateWithSelectorPage() {
   return (
     <>
-      <h1>ContextAsGlobalStateWithSelector</h1>
+      <h1>"9.2 К чёрту Redux?..."</h1>
       <main>
         <section>
           <ContextAsGlobalStateWithSelector />

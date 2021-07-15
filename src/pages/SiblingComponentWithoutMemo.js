@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 export default function SiblingComponentWithoutMemo() {
   return (
     <>
-      <h1>SiblingComponentWithoutMemo</h1>
+      <h1>"2.1 Просто соседние компоненты"</h1>
       <main>
         <section>
           <Counter />

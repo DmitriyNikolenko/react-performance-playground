@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, memo, useCallback } from "react";
 export default function SiblingMemoComponentWithMemoizedCallbackPage() {
   return (
     <>
-      <h1>SiblingMemoComponentWithMemoizedCallback</h1>
+      <h1>"3.2 Отнесёмся к соседу с уважением"</h1>
       <main>
         <section>
           <SiblingMemoComponentWithMemoizedCallback />
@@ -20,7 +20,7 @@ export default function SiblingMemoComponentWithMemoizedCallbackPage() {
 function SiblingMemoComponentWithMemoizedCallback() {
   const [x, setX] = useState(0);
 
-  const increment = useCallback(() => setX((x) => x + 1), [])
+  const increment = useCallback(() => setX((x) => x + 1), []);
 
   return (
     <>
@@ -35,7 +35,9 @@ const UpdateCounter = memo(function UpdateCounter({ onClick }) {
   const updatedTimes = useRef(0);
   useEffect(() => updatedTimes.current++);
 
-  return <button onClick={onClick}>updated times {updatedTimes.current}</button>;
+  return (
+    <button onClick={onClick}>updated times {updatedTimes.current}</button>
+  );
 });
 
 const code = `

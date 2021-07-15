@@ -6,7 +6,7 @@ import { HeavyComponent } from "../components/HeavyComponent";
 export default function ScrollPage() {
   return (
     <>
-      <h1>Scroll</h1>
+      <h1>"11.1 Поскроллим страницу"</h1>
       <main>
         <section>
           <Scroll />

@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { Colorizer } from "../components/Colorizer";
-import { longTask } from '../utils/longTask'
-import fastMemoize from "fast-memoize"
+import { longTask } from "../utils/longTask";
+import fastMemoize from "fast-memoize";
 
 export default function SyncCalculationWithFastMemoPage() {
   return (
     <>
-      <h1>SyncCalculationWithFastMemo</h1>
+      <h1>"1.2 Попробуем продвинутую мемоизацию"</h1>
       <main>
         <section>
           <SyncCalculationWithFastMemo />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[2, 10, 16]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[2, 10, 16]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </>
@@ -45,16 +47,15 @@ const SyncCalculationWithFastMemo = () => {
 
 const memoizedLongTask = fastMemoize(longTask);
 
-
 const Stat = ({ daysNumber }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const saveStatToAPI = () => {
     setIsLoading(true);
     setTimeout(() => void setIsLoading(false), 1000);
-  }; 
+  };
 
-  const result = memoizedLongTask(daysNumber * 100000) // expensive calculation
+  const result = memoizedLongTask(daysNumber * 100000); // expensive calculation
 
   return (
     <>

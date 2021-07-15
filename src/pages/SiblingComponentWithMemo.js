@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, memo } from "react";
 export default function SiblingComponentWithMemo() {
   return (
     <>
-      <h1>SiblingComponentWithMemo</h1>
+      <h1>"2.2 Защитим соседа от перерисовок"</h1>
       <main>
         <section>
           <Counter />

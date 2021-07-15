@@ -36,93 +36,137 @@ import ContextAsGlobalState from "./pages/ContextAsGlobalState";
 import ContextAsGlobalStateWithSelector from "./pages/ContextAsGlobalStateWithSelector";
 import TwoTasks from "./pages/TwoTasks";
 import TwoTasksWithIdleCallback from "./pages/TwoTasksWithIdleCallback";
+import FollowMouse from "./pages/FollowMouse";
+import FollowMouseWithThrottle from "./pages/FollowMouseWithThrottle";
+import FollowMouseWithoutUnsubscribe from "./pages/FollowMouseWithoutUnsubscribe";
 
 const routes = [
-  // Основы мемоизации.
-  { component: SyncCalculation, name: SyncCalculation.name },
+  // Оптимизация мемоизацией.
+
+  { component: SyncCalculation, name: "1. Посчитаем что-небудь" },
   {
     component: SyncCalculationWithUseMemo,
-    name: SyncCalculationWithUseMemo.name,
+    name: "1.1 Посчитаем что-небудь только тогда когда нужно",
   },
   {
     component: SyncCalculationWithFastMemo,
-    name: SyncCalculationWithFastMemo.name,
+    name: "1.2 Попробуем продвинутую мемоизацию",
   },
 
   {
     component: SiblingComponentWithoutMemo,
-    name: SiblingComponentWithoutMemo.name,
-  },
-  { component: SiblingComponentWithMemo, name: SiblingComponentWithMemo.name },
-  { component: SiblingMemoComponentWithCallback, name: SiblingMemoComponentWithCallback.name },
-  { component: SiblingMemoComponentWithMemoizedCallback, name: SiblingMemoComponentWithMemoizedCallback.name },
-
-  { component: UserContextExample, name: UserContextExample.name },
-  {
-    component: UserContextExampleWithMemo,
-    name: UserContextExampleWithMemo.name,
+    name: "2.1 Просто соседние компоненты",
   },
   {
-    component: UserContextExampleWithMemoValue,
-    name: UserContextExampleWithMemoValue.name,
+    component: SiblingComponentWithMemo,
+    name: "2.2 Защитим соседа от перерисовок",
+  },
+  {
+    component: SiblingMemoComponentWithCallback,
+    name: "3.1 Расширим функционал соседа",
+  },
+  {
+    component: SiblingMemoComponentWithMemoizedCallback,
+    name: "3.2 Отнесёмся к соседу с уважением",
   },
 
-  // Управление вложенностью.
+  // Оптимизация вложенностью.
 
-  { component: DeepNesting, name: DeepNesting.name },
-  { component: DeepNestingWithOneMemo, name: DeepNestingWithOneMemo.name },
-  { component: DeepNestingWithAllMemo, name: DeepNestingWithAllMemo.name },
-  { component: DeepNestingWithChildren, name: DeepNestingWithChildren.name },
+  { component: DeepNesting, name: "4.1 Вложенные компоненты" },
+  {
+    component: DeepNestingWithOneMemo,
+    name: "4.2 Вложенные компоненты с одним memo",
+  },
+  {
+    component: DeepNestingWithAllMemo,
+    name: "4.3 Вложенные компоненты со всеми memo",
+  },
+  {
+    component: DeepNestingWithChildren,
+    name: "4.4 Передача компонентов через props",
+  },
 
   // Suspense.
 
-  { component: ReactQuery, name: ReactQuery.name },
-  { component: ReactQueryWithConditions, name: ReactQueryWithConditions.name },
-  { component: ReactQueryWithSuspense, name: ReactQueryWithSuspense.name },
+  { component: ReactQuery, name: "5.1 Запрос на API" },
+  {
+    component: ReactQueryWithConditions,
+    name: "5.2 Запрос на API с проверкой",
+  },
+  { component: ReactQueryWithSuspense, name: "5.3 Suspense!" },
 
   // Не тупить.
 
-  { component: MultiUpdateWithUseState, name: MultiUpdateWithUseState.name },
+  { component: InitUseState, name: "6.1 Инициализируем useState" },
   {
-    component: MultiUpdateWithUseReducer,
-    name: MultiUpdateWithUseReducer.name,
+    component: InitUseStateWithCallback,
+    name: "6.2 Инициализируем useState правильно",
   },
 
-  { component: InitUseState, name: InitUseState.name },
-  { component: InitUseStateWithCallback, name: InitUseStateWithCallback.name },
+  { component: MultiUpdateWithUseState, name: "7.1 Множество setState'ов" },
+  {
+    component: MultiUpdateWithUseReducer,
+    name: "7.2 Меньше обновлений",
+  },
 
-  { component: ContextAsGlobalState, name: ContextAsGlobalState.name },
+  { component: UserContextExample, name: "8.1 Используем контекст" },
+  {
+    component: UserContextExampleWithMemo,
+    name: "8.2 Пробуем защититься от обновлений контекста",
+  },
+  {
+    component: UserContextExampleWithMemoValue,
+    name: "8.3 Передаём мемоизированный контекст",
+  },
+
+  { component: ContextAsGlobalState, name: "9.1 К чёрту Redux!" },
   {
     component: ContextAsGlobalStateWithSelector,
-    name: ContextAsGlobalStateWithSelector.name,
+    name: "9.2 К чёрту Redux?...",
   },
 
   // Extra инструменты
 
-  { component: Scroll, name: Scroll.name },
-  { component: ScrollWithLazyLoad, name: ScrollWithLazyLoad.name },
-
-  { component: TwoTasks, name: TwoTasks.name },
-  { component: TwoTasksWithIdleCallback, name: TwoTasksWithIdleCallback.name },
-
-  { component: ReallyHeavyCalculation, name: ReallyHeavyCalculation.name },
+  { component: FollowMouse, name: "10.1 Будем следить за мышью" },
   {
-    component: ReallyHeavyCalculationWithinWorker,
-    name: ReallyHeavyCalculationWithinWorker.name,
+    component: FollowMouseWithThrottle,
+    name: "10.2 Будем следить за мышью аккуратнее",
+  },
+  {
+    component: FollowMouseWithoutUnsubscribe,
+    name: "10.3 P.S. Забыл отписаться от события",
   },
 
-  { component: SlowQuery, name: SlowQuery.name },
-  { component: SlowQueryWithPreFetch, name: SlowQueryWithPreFetch.name },
-  { component: SlowQueryWithPrediction, name: SlowQueryWithPrediction.name },
+  { component: Scroll, name: "11.1 Поскроллим страницу" },
+  { component: ScrollWithLazyLoad, name: "11.2 Будем подгружать лениво" },
+
+  { component: TwoTasks, name: "12.1 Типа рисуем карту и статистику" },
+  {
+    component: TwoTasksWithIdleCallback,
+    name: "12.2 Попробуем приоритезировать рассчёты",
+  },
+
+  { component: ReallyHeavyCalculation, name: "13.1 Очень тяжёлые вычисления" },
+  {
+    component: ReallyHeavyCalculationWithinWorker,
+    name: "13.2 Вынесем тяжёлые вычисления подальше",
+  },
+
+  { component: SlowQuery, name: "14.1 API работает не быстро" },
+  { component: SlowQueryWithPreFetch, name: "14.2 А что если так?" },
+  { component: SlowQueryWithPrediction, name: "14.3 А если ещё вот так?" },
   {
     component: SlowQueryWithPredictionButtons,
-    name: SlowQueryWithPredictionButtons.name,
+    name: "14.4 Магия!",
   },
 
   // Future.
 
-  { component: FutureAutomaticBatching, name: FutureAutomaticBatching.name },
-  { component: FutureStartTransition, name: FutureStartTransition.name },
+  {
+    component: FutureAutomaticBatching,
+    name: "15.1 Будущее. Автоматический батчинг",
+  },
+  { component: FutureStartTransition, name: "15.2 Будущее. Переходы" },
 ];
 
 function App() {
@@ -134,7 +178,7 @@ function App() {
           <nav>
             <ul>
               {routes.map((route, index) => (
-                <li key={`/example-${index + 1}`}>
+                <li key={route.name}>
                   <Link to={`/example-${index + 1}`}>{route.name}</Link>
                 </li>
               ))}
@@ -143,7 +187,7 @@ function App() {
         </Route>
         {routes.map((route, index) => (
           <Route
-            key={route.path}
+            key={route.name}
             path={`/example-${index + 1}`}
             component={route.component}
           />

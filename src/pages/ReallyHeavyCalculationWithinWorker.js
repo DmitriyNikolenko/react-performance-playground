@@ -7,7 +7,7 @@ import { longTask } from "../utils/longTask";
 export default function ReallyHeavyCalculationWithinWorkerPage() {
   return (
     <>
-      <h1>ReallyHeavyCalculationWithinWorker</h1>
+      <h1>"13.2 Вынесем тяжёлые вычисления подальше"</h1>
       <main>
         <section>
           <ReallyHeavyCalculationWithinWorker />

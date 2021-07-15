@@ -11,7 +11,7 @@ import {
 export default function UserContextExample() {
   return (
     <>
-      <h1>UserContextExample</h1>
+      <h1>"8.1 Используем контекст"</h1>
       <main>
         <section>
           <FatContext />

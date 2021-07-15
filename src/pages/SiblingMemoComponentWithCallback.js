@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, memo } from "react";
 export default function SiblingMemoComponentWithCallbackPage() {
   return (
     <>
-      <h1>SiblingMemoComponentWithCallback</h1>
+      <h1>"3.1 Расширим функционал соседа"</h1>
       <main>
         <section>
           <SiblingMemoComponentWithCallback />
@@ -20,7 +20,7 @@ export default function SiblingMemoComponentWithCallbackPage() {
 function SiblingMemoComponentWithCallback() {
   const [x, setX] = useState(0);
 
-  const increment = () => setX((x) => x + 1)
+  const increment = () => setX((x) => x + 1);
 
   return (
     <>
@@ -35,7 +35,9 @@ const UpdateCounter = memo(function UpdateCounter({ onClick }) {
   const updatedTimes = useRef(0);
   useEffect(() => updatedTimes.current++);
 
-  return <button onClick={onClick}>updated times {updatedTimes.current}</button>;
+  return (
+    <button onClick={onClick}>updated times {updatedTimes.current}</button>
+  );
 });
 
 const code = `

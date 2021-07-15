@@ -1,12 +1,12 @@
 import { useState, useMemo } from "react";
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { Colorizer } from "../components/Colorizer";
-import { longTask } from '../utils/longTask'
+import { longTask } from "../utils/longTask";
 
 export default function SyncCalculationWithUseMemoPage() {
   return (
     <>
-      <h1>SyncCalculationWithUseMemo</h1>
+      <h1>"1.1 Посчитаем что-небудь только тогда когда нужно"</h1>
       <main>
         <section>
           <SyncCalculationWithUseMemo />
@@ -48,7 +48,7 @@ const Stat = ({ daysNumber }) => {
   const saveStatToAPI = () => {
     setIsLoading(true);
     setTimeout(() => void setIsLoading(false), 1000);
-  }; 
+  };
 
   const result = useMemo(() => longTask(daysNumber * 100000), [daysNumber]); // expensive calculation
 

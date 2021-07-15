@@ -11,7 +11,7 @@ import React, {
 export default function UserContextExampleWithMemoValue() {
   return (
     <>
-      <h1>UserContextExampleWithMemoValue</h1>
+      <h1>"8.3 Передаём мемоизированный контекст"</h1>
       <main>
         <section>
           <FatContext />

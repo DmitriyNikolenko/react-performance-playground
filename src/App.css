@@ -42,7 +42,8 @@
   font-size: 24px;
 }
 
-body {}
+body {
+}
 
 main {
   clear: both;
@@ -79,10 +80,10 @@ nav button {
 
 nav > * {
   margin-right: 8px;
-} 
+}
 
 h1 {
-  background-color:darkcyan;
+  background-color: darkcyan;
   color: white;
   padding: 8px 32px;
   margin: 0;

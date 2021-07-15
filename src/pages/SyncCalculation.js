@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { Colorizer } from "../components/Colorizer";
-import { longTask } from '../utils/longTask'
+import { longTask } from "../utils/longTask";
 
 export default function SyncCalculationPage() {
   return (
     <>
-      <h1>SyncCalculation</h1>
+      <h1>"1. Посчитаем что-небудь"</h1>
       <main>
         <section>
           <SyncCalculation />
@@ -48,7 +48,7 @@ const Stat = ({ daysNumber }) => {
   const saveStatToAPI = () => {
     setIsLoading(true);
     setTimeout(() => void setIsLoading(false), 1000);
-  }; 
+  };
 
   const result = longTask(daysNumber * 100000); // expensive calculation
 

@@ -13,13 +13,16 @@ const longQuery = async () => {
 export default function SlowQueryWithPredictionPage() {
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>SlowQueryWithPredictionPage</h1>
+      <h1>"14.3 А если ещё вот так?"</h1>
       <main>
         <section>
           <SlowQueryWithPrediction />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[2, 5, 6, 7, 8, 9, 13]}>
+          <SyntaxHighlighter
+            defaultHidden
+            accentedLines={[2, 5, 6, 7, 8, 9, 13]}
+          >
             {code}
           </SyntaxHighlighter>
         </aside>
@@ -45,7 +48,13 @@ const SlowQueryWithPrediction = () => {
 
   return (
     <>
-      <br /><br /><br /><br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <button
         ref={buttonRef}
         onClick={() => setIsShowed((isShowed) => !isShowed)}

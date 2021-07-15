@@ -4,7 +4,7 @@ import { useReducer, useRef, useEffect, useCallback } from "react";
 export default function MultiUpdateWithUseReducerPage() {
   return (
     <>
-      <h1>MultiUpdateWithUseReducer</h1>
+      <h1>"7.2 Меньше обновлений"</h1>
       <main>
         <section>
           <MultiUpdateWithUseReducer />
@@ -43,7 +43,7 @@ function MultiUpdateWithUseReducer() {
       setTimeout(res({ name: "Vasya", age: 10 }), 500)
     );
     dispatch({ type: "save", user });
-  }
+  };
 
   return (
     <>

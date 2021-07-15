@@ -11,13 +11,17 @@ import {
 export default function ContextAsGlobalStatePage() {
   return (
     <>
-      <h1>ContextAsGlobalState</h1>
+      <h1>"9.1 К чёрту Redux!"</h1>
       <main>
         <section>
           <ContextAsGlobalState />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[3,19,20,21,22,23,24,25,26,27]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter
+            accentedLines={[3, 19, 20, 21, 22, 23, 24, 25, 26, 27]}
+          >
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </>

@@ -7,13 +7,15 @@ export default function ReactQuery() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <h1>ReactQuery</h1>
+      <h1>"5.1 Запрос на API"</h1>
       <main>
         <section>
           <Loader />
         </section>
         <aside>
-          <SyntaxHighlighter accentedLines={[11,13,14]}>{code}</SyntaxHighlighter>
+          <SyntaxHighlighter accentedLines={[11, 13, 14]}>
+            {code}
+          </SyntaxHighlighter>
         </aside>
       </main>
     </QueryClientProvider>
