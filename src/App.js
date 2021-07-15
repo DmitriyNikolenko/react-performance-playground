@@ -39,6 +39,8 @@ import TwoTasksWithIdleCallback from "./pages/TwoTasksWithIdleCallback";
 import FollowMouse from "./pages/FollowMouse";
 import FollowMouseWithThrottle from "./pages/FollowMouseWithThrottle";
 import FollowMouseWithoutUnsubscribe from "./pages/FollowMouseWithoutUnsubscribe";
+import RenderArray from "./pages/RenderArray";
+import RenderArrayWithKeys from "./pages/RenderArrayWithKeys";
 
 const routes = [
   // Оптимизация мемоизацией.
@@ -96,6 +98,12 @@ const routes = [
   { component: ReactQueryWithSuspense, name: "5.3 Suspense!" },
 
   // Не тупить.
+
+  { component: RenderArray, name: "Bonus. Покажем массив имён" },
+  {
+    component: RenderArrayWithKeys,
+    name: "Bonus. НЕ ИСПОЛЬЗУЙТЕ INDEX МАССИВА КАК КЛЮЧ !!!",
+  },
 
   { component: InitUseState, name: "6.1 Инициализируем useState" },
   {
