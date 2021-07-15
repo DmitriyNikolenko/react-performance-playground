@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { SyntaxHighlighter } from "../components/SyntaxHighlighter";
 import { Colorizer } from "../components/Colorizer";
-import { longTask } from "../utils/longTask";
+import { delayTask } from "../utils/delayTask";
 import { throttle } from "lodash";
 
 export default function FollowMouseWithThrottlePage() {
@@ -28,9 +28,9 @@ const FollowMouseWithThrottle = () => {
 
   const throttledMouseMoveHandler = useCallback(
     throttle((event) => {
-      const coordsInfo = longTask((x + y) * 80);
+      const coordsInfo = setTimeout(() => delayTask(50), 0);
       setCoords([event.x, event.y, coordsInfo]);
-    }, 200),
+    }, 300),
     []
   );
 
